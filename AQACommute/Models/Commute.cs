@@ -11,14 +11,21 @@ namespace AQACommute.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Commute
     {
+        [Display(Name = "Commute ID")]
         public int CommuteID { get; set; }
+        [Display(Name = "Distance Traveled")]
         public double DistanceTraveled { get; set; }
+        [Display(Name = "Commute Time Start")]
         public Nullable<System.DateTime> CommuteTimeSpent { get; set; }
+        [Display(Name = "Commute Time End")]
         public Nullable<System.DateTime> CommuteTimeEnd { get; set; }
+        [Display(Name = "CO2 Footprint")]
         public double C02Footprint { get; set; }
+        [Display(Name = "Vehicle ID")]
         public Nullable<int> VehicleID { get; set; }
     
         public virtual Vehicle Vehicle { get; set; }
