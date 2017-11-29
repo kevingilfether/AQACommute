@@ -1,0 +1,58 @@
+﻿@model AQACommute.Models.Commute
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Commute</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DistanceTraveled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DistanceTraveled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommuteTimeSpent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommuteTimeSpent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommuteTimeEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommuteTimeEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C02Footprint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C02Footprint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.Make)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.Make)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CommuteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

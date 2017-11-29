@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AQAMvpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Commute">
+          <Key>
+            <PropertyRef Name="CommuteID" />
+          </Key>
+          <Property Name="CommuteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DistanceTraveled" Type="float" Nullable="false" />
+          <Property Name="CommuteTimeSpent" Type="datetime" />
+          <Property Name="CommuteTimeEnd" Type="datetime" />
+          <Property Name="C02Footprint" Type="float" Nullable="false" />
+          <Property Name="VehicleID" Type="int" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+          </Key>
+          <Property Name="VehicleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Make" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Year" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Class" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MPGCity" Type="float" Nullable="false" />
+          <Property Name="MPGHwy" Type="float" Nullable="false" />
+          <Property Name="MPGAvg" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Commute_Vehicle">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+          <End Role="Commute" Type="Self.Commute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="VehicleID" />
+            </Principal>
+            <Dependent Role="Commute">
+              <PropertyRef Name="VehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AQAMvpModelStoreContainer">
+          <EntitySet Name="Commute" EntityType="Self.Commute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Commute_Vehicle" Association="Self.FK_Commute_Vehicle">
+            <End Role="Vehicle" EntitySet="Vehicle" />
+            <End Role="Commute" EntitySet="Commute" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AQAMvpModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Commute">
+          <Key>
+            <PropertyRef Name="CommuteID" />
+          </Key>
+          <Property Name="CommuteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistanceTraveled" Type="Double" Nullable="false" />
+          <Property Name="CommuteTimeSpent" Type="DateTime" Precision="3" />
+          <Property Name="CommuteTimeEnd" Type="DateTime" Precision="3" />
+          <Property Name="C02Footprint" Type="Double" Nullable="false" />
+          <Property Name="VehicleID" Type="Int32" />
+          <NavigationProperty Name="Vehicle" Relationship="Self.FK_Commute_Vehicle" FromRole="Commute" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="VehicleID" />
+          </Key>
+          <Property Name="VehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Make" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Class" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MPGCity" Type="Double" Nullable="false" />
+          <Property Name="MPGHwy" Type="Double" Nullable="false" />
+          <Property Name="MPGAvg" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Commutes" Relationship="Self.FK_Commute_Vehicle" FromRole="Vehicle" ToRole="Commute" />
+        </EntityType>
+        <Association Name="FK_Commute_Vehicle">
+          <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+          <End Role="Commute" Type="Self.Commute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicle">
+              <PropertyRef Name="VehicleID" />
+            </Principal>
+            <Dependent Role="Commute">
+              <PropertyRef Name="VehicleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AQAMvpEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Commutes" EntityType="Self.Commute" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+          <AssociationSet Name="FK_Commute_Vehicle" Association="Self.FK_Commute_Vehicle">
+            <End Role="Vehicle" EntitySet="Vehicles" />
+            <End Role="Commute" EntitySet="Commutes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AQAMvpModelStoreContainer" CdmEntityContainer="AQAMvpEntities">
+          <EntitySetMapping Name="Commutes">
+            <EntityTypeMapping TypeName="AQAMvpModel.Commute">
+              <MappingFragment StoreEntitySet="Commute">
+                <ScalarProperty Name="CommuteID" ColumnName="CommuteID" />
+                <ScalarProperty Name="DistanceTraveled" ColumnName="DistanceTraveled" />
+                <ScalarProperty Name="CommuteTimeSpent" ColumnName="CommuteTimeSpent" />
+                <ScalarProperty Name="CommuteTimeEnd" ColumnName="CommuteTimeEnd" />
+                <ScalarProperty Name="C02Footprint" ColumnName="C02Footprint" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="AQAMvpModel.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicle">
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="MPGCity" ColumnName="MPGCity" />
+                <ScalarProperty Name="MPGHwy" ColumnName="MPGHwy" />
+                <ScalarProperty Name="MPGAvg" ColumnName="MPGAvg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
