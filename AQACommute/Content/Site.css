@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.row {
+    padding: 100px;
+    height: 400px;
+}
+#map {
+    height: 400px;
+}
