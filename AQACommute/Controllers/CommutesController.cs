@@ -52,8 +52,14 @@ namespace AQACommute.Controllers
         {
             if (ModelState.IsValid)
             {
+                Vehicle vehicle = new Vehicle();
                 //HARD CODED numbers
-                commute.C02Footprint = (20 / 10) * 20;
+                //commute.C02Footprint = (20 / 10) * 20;
+
+                //commute.Vehicle.MPGavg is the issue here
+                commute.C02Footprint = (commute.DistanceTraveled / 23) * 20;
+
+                //commute.C02Footprint = (commute.DistanceTraveled / vehicle.MPGAvg) * 20;
                 db.Commutes.Add(commute);
                 db.SaveChanges();
                 return RedirectToAction("Index");
