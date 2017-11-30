@@ -52,6 +52,8 @@ namespace AQACommute.Controllers
         {
             if (ModelState.IsValid)
             {
+                //HARD CODED numbers
+                commute.C02Footprint = (20 / 10) * 20;
                 db.Commutes.Add(commute);
                 db.SaveChanges();
                 return RedirectToAction("Index");
