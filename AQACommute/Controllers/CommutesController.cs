@@ -39,7 +39,7 @@ namespace AQACommute.Controllers
         // GET: Commutes/Create
         public ActionResult Create()
         {
-            ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Make");
+            ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Class");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace AQACommute.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Make", commute.VehicleID);
+            ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Class", commute.VehicleID);
             return View(commute);
         }
 
@@ -73,7 +73,7 @@ namespace AQACommute.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Make", commute.VehicleID);
+            ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Class", commute.VehicleID);
             return View(commute);
         }
 
@@ -90,7 +90,7 @@ namespace AQACommute.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Make", commute.VehicleID);
+            ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Class", commute.VehicleID);
             return View(commute);
         }
 
