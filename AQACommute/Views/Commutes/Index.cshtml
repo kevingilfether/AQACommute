@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.C02Footprint)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Vehicle.Make)
+            @Html.DisplayNameFor(model => model.Vehicle.Class)
         </th>
         <th></th>
     </tr>
@@ -44,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.C02Footprint)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Vehicle.Make)
+            @Html.DisplayFor(modelItem => item.Vehicle.Class)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CommuteID }) |

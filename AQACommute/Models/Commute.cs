@@ -17,17 +17,23 @@ namespace AQACommute.Models
     {
         [Display(Name = "Commute ID")]
         public int CommuteID { get; set; }
+
         [Display(Name = "Distance Traveled")]
         public double DistanceTraveled { get; set; }
+
         [Display(Name = "Commute Time Start")]
-        public Nullable<System.DateTime> CommuteTimeSpent { get; set; }
+        public Nullable<System.DateTime> CommuteTimeSpent { get; set; } //START instead of SPENT
+
         [Display(Name = "Commute Time End")]
         public Nullable<System.DateTime> CommuteTimeEnd { get; set; }
+
         [Display(Name = "CO2 Footprint")]
         public double C02Footprint { get; set; }
-        [Display(Name = "Vehicle ID")]
+
+        [Display(Name = "Vehicle Class")]
         public Nullable<int> VehicleID { get; set; }
-    
+
+       
         public virtual Vehicle Vehicle { get; set; }
     }
 }
