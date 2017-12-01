@@ -31,5 +31,12 @@ namespace AQACommute.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Commute> Commutes { get; set; }
+
+        public Vehicle(double MPGAvg)
+        {
+            this.MPGAvg = MPGAvg;
+        }
+
+
     }
 }

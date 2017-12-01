@@ -18,6 +18,7 @@ namespace AQACommute.Controllers
         public ActionResult Index()
         {
             var commutes = db.Commutes.Include(c => c.Vehicle);
+
             return View(commutes.ToList());
         }
 
@@ -40,6 +41,7 @@ namespace AQACommute.Controllers
         public ActionResult Create()
         {
             ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Make");
+
             return View();
         }
 
@@ -50,12 +52,55 @@ namespace AQACommute.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CommuteID,DistanceTraveled,CommuteTimeSpent,CommuteTimeEnd,C02Footprint,VehicleID")] Commute commute)
         {
+
+            //Vehicle vehicle = new Vehicle();
+
+            //vehicle.MPGAvg = (vehicle.MPGCity + vehicle.MPGHwy) / 2;
+
+            //commute.C02Footprint = (commute.DistanceTraveled / vehicle.MPGAvg) * 20;
+
             if (ModelState.IsValid)
             {
+                
+
+                
+                
+
+                /*vehicle.MPGAvg*/ 
+                var myMPG = from test in db.Vehicles
+                            where test.VehicleID == commute.VehicleID
+                            //orderby test.MPGAvg ascending
+                            select test.MPGAvg;
+
+                double testCalc = 0;
+
+                foreach(var mpg in myMPG)
+                {
+                    testCalc = mpg;
+                }
+               
+
+                //vehicle.MPGAvg = myMPG;
+
+                //string see = myMPG.ToString();
+
+                //double moreHope = Convert.ToDouble(see)   try TryParse;
+
+                //double hope = double.Parse(see);
+
+                //Vehicle vehicle = new Models.Vehicle(testCalc);
+
+                commute.C02Footprint = (commute.DistanceTraveled / testCalc) * 20;
+
+                //Try as function instead
+
+
                 db.Commutes.Add(commute);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            //in html - make the C02Footprint field invisible or...remove it from the HTML and from the above commute object)
 
             ViewBag.VehicleID = new SelectList(db.Vehicles, "VehicleID", "Make", commute.VehicleID);
             return View(commute);
@@ -130,3 +175,7 @@ namespace AQACommute.Controllers
         }
     }
 }
+
+//db.Commutes.Add(commute);
+//                db.SaveChanges();
+//                return RedirectToAction("Index");

@@ -22,5 +22,6 @@ namespace AQACommute.Models
         public Nullable<int> VehicleID { get; set; }
     
         public virtual Vehicle Vehicle { get; set; }
+
     }
 }
