@@ -23,7 +23,13 @@
         <AssociationConnector Association="AQACommuteDBModel.FK_TransportMethod_Option" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_TransportMethod_Year" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_UTM_TransportMethod" ManuallyRouted="false" />
-        <AssociationConnector Association="AQACommuteDBModel.FK_UTM_UTM" ManuallyRouted="false" />
+        <AssociationConnector Association="AQACommuteDBModel.FK_UTM_UTM" ManuallyRouted="true" >
+          <ConnectorPoint PointX="5.7819230769230767" PointY="6.797587890625" />
+          <ConnectorPoint PointX="5.7923397435897446" PointY="6.8800878906249991" />
+          <ConnectorPoint PointX="5.7923397435897446" PointY="7.1309212239583335" />
+          <ConnectorPoint PointX="6.2284615384615378" PointY="7.1309212239583335" />
+          <ConnectorPoint PointX="6.2284615384615378" PointY="6.797587890625" />
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
