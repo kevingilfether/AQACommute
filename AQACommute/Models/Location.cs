@@ -12,24 +12,22 @@ namespace AQACommute.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Commute
+    public partial class Location
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Commute()
+        public Location()
         {
             this.CommuteLocations = new HashSet<CommuteLocation>();
         }
     
-        public int CommuteID { get; set; }
-        public string CommuteTime { get; set; }
-        public string StartPoint { get; set; }
-        public string EndPoint { get; set; }
-        public Nullable<double> TotalMiles { get; set; }
-        public double CO2GeneratedLbs { get; set; }
-        public int TransportMethodID { get; set; }
+        public int LocationsID { get; set; }
+        public string LocationName { get; set; }
+        public string LocationAddress { get; set; }
+        public string UserID { get; set; }
     
-        public virtual TransportMethod TransportMethod { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CommuteLocation> CommuteLocations { get; set; }
+        public virtual Location Locations1 { get; set; }
+        public virtual Location Location1 { get; set; }
     }
 }

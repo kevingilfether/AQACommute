@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AQACommuteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Commute">
+          <Key>
+            <PropertyRef Name="CommuteID" />
+          </Key>
+          <Property Name="CommuteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommuteTime" Type="varchar" MaxLength="50" />
+          <Property Name="StartPoint" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="EndPoint" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="TotalMiles" Type="float" />
+          <Property Name="CO2GeneratedLbs" Type="float" Nullable="false" />
+          <Property Name="TransportMethodID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommuteLocation">
+          <Key>
+            <PropertyRef Name="CommuteLocationID" />
+          </Key>
+          <Property Name="CommuteLocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationsID" Type="int" Nullable="false" />
+          <Property Name="CommuteID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="LocationsID" />
+          </Key>
+          <Property Name="LocationsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LocationAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Make">
+          <Key>
+            <PropertyRef Name="MakeID" />
+          </Key>
+          <Property Name="MakeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MakeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ModelID" />
+          </Key>
+          <Property Name="ModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModelName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OptionName" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransportMethod">
+          <Key>
+            <PropertyRef Name="TransportMethodID" />
+          </Key>
+          <Property Name="TransportMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransportMode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TransportClass" Type="nvarchar" MaxLength="50" />
+          <Property Name="AvgMPG" Type="float" Nullable="false" />
+          <Property Name="CityMPG" Type="float" />
+          <Property Name="HwyMPG" Type="float" />
+          <Property Name="CO2Lbs" Type="float" />
+          <Property Name="MakeID" Type="int" />
+          <Property Name="ModelID" Type="int" />
+          <Property Name="YearID" Type="int" />
+          <Property Name="OptionID" Type="int" />
+          <Property Name="Make" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Year" Type="nvarchar" MaxLength="50" />
+          <Property Name="Options" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="UTM">
+          <Key>
+            <PropertyRef Name="UTMID" />
+          </Key>
+          <Property Name="UTMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TransportMethodID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Year">
+          <Key>
+            <PropertyRef Name="YearID" />
+          </Key>
+          <Property Name="YearID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Commute_TransportMethod">
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="1" />
+          <End Role="Commute" Type="Self.Commute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransportMethod">
+              <PropertyRef Name="TransportMethodID" />
+            </Principal>
+            <Dependent Role="Commute">
+              <PropertyRef Name="TransportMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommuteLocation_Commute">
+          <End Role="Commute" Type="Self.Commute" Multiplicity="1" />
+          <End Role="CommuteLocation" Type="Self.CommuteLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commute">
+              <PropertyRef Name="CommuteID" />
+            </Principal>
+            <Dependent Role="CommuteLocation">
+              <PropertyRef Name="CommuteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommuteLocation_Locations">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+          <End Role="CommuteLocation" Type="Self.CommuteLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationsID" />
+            </Principal>
+            <Dependent Role="CommuteLocation">
+              <PropertyRef Name="LocationsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Locations_Locations">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+          <End Role="Locations1" Type="Self.Locations" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationsID" />
+            </Principal>
+            <Dependent Role="Locations1">
+              <PropertyRef Name="LocationsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportMethod_Make">
+          <End Role="Make" Type="Self.Make" Multiplicity="0..1" />
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Make">
+              <PropertyRef Name="MakeID" />
+            </Principal>
+            <Dependent Role="TransportMethod">
+              <PropertyRef Name="MakeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportMethod_Model">
+          <End Role="Model" Type="Self.Model" Multiplicity="0..1" />
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ModelID" />
+            </Principal>
+            <Dependent Role="TransportMethod">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportMethod_Option">
+          <End Role="Option" Type="Self.Option" Multiplicity="0..1" />
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Option">
+              <PropertyRef Name="OptionID" />
+            </Principal>
+            <Dependent Role="TransportMethod">
+              <PropertyRef Name="OptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportMethod_Year">
+          <End Role="Year" Type="Self.Year" Multiplicity="0..1" />
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Year">
+              <PropertyRef Name="YearID" />
+            </Principal>
+            <Dependent Role="TransportMethod">
+              <PropertyRef Name="YearID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTM_TransportMethod">
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="1" />
+          <End Role="UTM" Type="Self.UTM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransportMethod">
+              <PropertyRef Name="TransportMethodID" />
+            </Principal>
+            <Dependent Role="UTM">
+              <PropertyRef Name="TransportMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTM_UTM">
+          <End Role="UTM" Type="Self.UTM" Multiplicity="1" />
+          <End Role="UTM1" Type="Self.UTM" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UTM">
+              <PropertyRef Name="UTMID" />
+            </Principal>
+            <Dependent Role="UTM1">
+              <PropertyRef Name="UTMID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AQACommuteDBModelStoreContainer">
+          <EntitySet Name="Commute" EntityType="Self.Commute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommuteLocation" EntityType="Self.CommuteLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Make" EntityType="Self.Make" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Option" EntityType="Self.Option" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransportMethod" EntityType="Self.TransportMethod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UTM" EntityType="Self.UTM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Year" EntityType="Self.Year" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Commute_TransportMethod" Association="Self.FK_Commute_TransportMethod">
+            <End Role="TransportMethod" EntitySet="TransportMethod" />
+            <End Role="Commute" EntitySet="Commute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommuteLocation_Commute" Association="Self.FK_CommuteLocation_Commute">
+            <End Role="Commute" EntitySet="Commute" />
+            <End Role="CommuteLocation" EntitySet="CommuteLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommuteLocation_Locations" Association="Self.FK_CommuteLocation_Locations">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="CommuteLocation" EntitySet="CommuteLocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locations_Locations" Association="Self.FK_Locations_Locations">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Locations1" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportMethod_Make" Association="Self.FK_TransportMethod_Make">
+            <End Role="Make" EntitySet="Make" />
+            <End Role="TransportMethod" EntitySet="TransportMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportMethod_Model" Association="Self.FK_TransportMethod_Model">
+            <End Role="Model" EntitySet="Model" />
+            <End Role="TransportMethod" EntitySet="TransportMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportMethod_Option" Association="Self.FK_TransportMethod_Option">
+            <End Role="Option" EntitySet="Option" />
+            <End Role="TransportMethod" EntitySet="TransportMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportMethod_Year" Association="Self.FK_TransportMethod_Year">
+            <End Role="Year" EntitySet="Year" />
+            <End Role="TransportMethod" EntitySet="TransportMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTM_TransportMethod" Association="Self.FK_UTM_TransportMethod">
+            <End Role="TransportMethod" EntitySet="TransportMethod" />
+            <End Role="UTM" EntitySet="UTM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTM_UTM" Association="Self.FK_UTM_UTM">
+            <End Role="UTM" EntitySet="UTM" />
+            <End Role="UTM1" EntitySet="UTM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AQACommuteDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Commute">
+          <Key>
+            <PropertyRef Name="CommuteID" />
+          </Key>
+          <Property Name="CommuteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommuteTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartPoint" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EndPoint" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalMiles" Type="Double" />
+          <Property Name="CO2GeneratedLbs" Type="Double" Nullable="false" />
+          <Property Name="TransportMethodID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TransportMethod" Relationship="Self.FK_Commute_TransportMethod" FromRole="Commute" ToRole="TransportMethod" />
+          <NavigationProperty Name="CommuteLocations" Relationship="Self.FK_CommuteLocation_Commute" FromRole="Commute" ToRole="CommuteLocation" />
+        </EntityType>
+        <EntityType Name="CommuteLocation">
+          <Key>
+            <PropertyRef Name="CommuteLocationID" />
+          </Key>
+          <Property Name="CommuteLocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationsID" Type="Int32" Nullable="false" />
+          <Property Name="CommuteID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Commute" Relationship="Self.FK_CommuteLocation_Commute" FromRole="CommuteLocation" ToRole="Commute" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_CommuteLocation_Locations" FromRole="CommuteLocation" ToRole="Locations" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationsID" />
+          </Key>
+          <Property Name="LocationsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LocationAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CommuteLocations" Relationship="Self.FK_CommuteLocation_Locations" FromRole="Locations" ToRole="CommuteLocation" />
+          <NavigationProperty Name="Locations1" Relationship="Self.FK_Locations_Locations" FromRole="Locations" ToRole="Locations1" />
+          <NavigationProperty Name="Location1" Relationship="Self.FK_Locations_Locations" FromRole="Locations1" ToRole="Locations" />
+        </EntityType>
+        <EntityType Name="Make">
+          <Key>
+            <PropertyRef Name="MakeID" />
+          </Key>
+          <Property Name="MakeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MakeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TransportMethods" Relationship="Self.FK_TransportMethod_Make" FromRole="Make" ToRole="TransportMethod" />
+        </EntityType>
+        <EntityType Name="Model">
+          <Key>
+            <PropertyRef Name="ModelID" />
+          </Key>
+          <Property Name="ModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TransportMethods" Relationship="Self.FK_TransportMethod_Model" FromRole="Model" ToRole="TransportMethod" />
+        </EntityType>
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="OptionID" />
+          </Key>
+          <Property Name="OptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OptionName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TransportMethods" Relationship="Self.FK_TransportMethod_Option" FromRole="Option" ToRole="TransportMethod" />
+        </EntityType>
+        <EntityType Name="TransportMethod">
+          <Key>
+            <PropertyRef Name="TransportMethodID" />
+          </Key>
+          <Property Name="TransportMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransportMode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransportClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AvgMPG" Type="Double" Nullable="false" />
+          <Property Name="CityMPG" Type="Double" />
+          <Property Name="HwyMPG" Type="Double" />
+          <Property Name="CO2Lbs" Type="Double" />
+          <Property Name="MakeID" Type="Int32" />
+          <Property Name="ModelID" Type="Int32" />
+          <Property Name="YearID" Type="Int32" />
+          <Property Name="OptionID" Type="Int32" />
+          <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Options" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Commutes" Relationship="Self.FK_Commute_TransportMethod" FromRole="TransportMethod" ToRole="Commute" />
+          <NavigationProperty Name="Make1" Relationship="Self.FK_TransportMethod_Make" FromRole="TransportMethod" ToRole="Make" />
+          <NavigationProperty Name="Model1" Relationship="Self.FK_TransportMethod_Model" FromRole="TransportMethod" ToRole="Model" />
+          <NavigationProperty Name="Option" Relationship="Self.FK_TransportMethod_Option" FromRole="TransportMethod" ToRole="Option" />
+          <NavigationProperty Name="Year1" Relationship="Self.FK_TransportMethod_Year" FromRole="TransportMethod" ToRole="Year" />
+          <NavigationProperty Name="UTMs" Relationship="Self.FK_UTM_TransportMethod" FromRole="TransportMethod" ToRole="UTM" />
+        </EntityType>
+        <EntityType Name="UTM">
+          <Key>
+            <PropertyRef Name="UTMID" />
+          </Key>
+          <Property Name="UTMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransportMethodID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TransportMethod" Relationship="Self.FK_UTM_TransportMethod" FromRole="UTM" ToRole="TransportMethod" />
+          <NavigationProperty Name="UTM1" Relationship="Self.FK_UTM_UTM" FromRole="UTM" ToRole="UTM1" />
+          <NavigationProperty Name="UTM2" Relationship="Self.FK_UTM_UTM" FromRole="UTM1" ToRole="UTM" />
+        </EntityType>
+        <EntityType Name="Year">
+          <Key>
+            <PropertyRef Name="YearID" />
+          </Key>
+          <Property Name="YearID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Year1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TransportMethods" Relationship="Self.FK_TransportMethod_Year" FromRole="Year" ToRole="TransportMethod" />
+        </EntityType>
+        <Association Name="FK_Commute_TransportMethod">
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="1" />
+          <End Role="Commute" Type="Self.Commute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransportMethod">
+              <PropertyRef Name="TransportMethodID" />
+            </Principal>
+            <Dependent Role="Commute">
+              <PropertyRef Name="TransportMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommuteLocation_Commute">
+          <End Role="Commute" Type="Self.Commute" Multiplicity="1" />
+          <End Role="CommuteLocation" Type="Self.CommuteLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commute">
+              <PropertyRef Name="CommuteID" />
+            </Principal>
+            <Dependent Role="CommuteLocation">
+              <PropertyRef Name="CommuteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommuteLocation_Locations">
+          <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+          <End Role="CommuteLocation" Type="Self.CommuteLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationsID" />
+            </Principal>
+            <Dependent Role="CommuteLocation">
+              <PropertyRef Name="LocationsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Locations_Locations">
+          <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+          <End Role="Locations1" Type="Self.Location" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationsID" />
+            </Principal>
+            <Dependent Role="Locations1">
+              <PropertyRef Name="LocationsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportMethod_Make">
+          <End Role="Make" Type="Self.Make" Multiplicity="0..1" />
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Make">
+              <PropertyRef Name="MakeID" />
+            </Principal>
+            <Dependent Role="TransportMethod">
+              <PropertyRef Name="MakeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportMethod_Model">
+          <End Role="Model" Type="Self.Model" Multiplicity="0..1" />
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Model">
+              <PropertyRef Name="ModelID" />
+            </Principal>
+            <Dependent Role="TransportMethod">
+              <PropertyRef Name="ModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportMethod_Option">
+          <End Role="Option" Type="Self.Option" Multiplicity="0..1" />
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Option">
+              <PropertyRef Name="OptionID" />
+            </Principal>
+            <Dependent Role="TransportMethod">
+              <PropertyRef Name="OptionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransportMethod_Year">
+          <End Role="Year" Type="Self.Year" Multiplicity="0..1" />
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Year">
+              <PropertyRef Name="YearID" />
+            </Principal>
+            <Dependent Role="TransportMethod">
+              <PropertyRef Name="YearID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTM_TransportMethod">
+          <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="1" />
+          <End Role="UTM" Type="Self.UTM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransportMethod">
+              <PropertyRef Name="TransportMethodID" />
+            </Principal>
+            <Dependent Role="UTM">
+              <PropertyRef Name="TransportMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTM_UTM">
+          <End Role="UTM" Type="Self.UTM" Multiplicity="1" />
+          <End Role="UTM1" Type="Self.UTM" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UTM">
+              <PropertyRef Name="UTMID" />
+            </Principal>
+            <Dependent Role="UTM1">
+              <PropertyRef Name="UTMID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AQACommuteDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Commutes" EntityType="Self.Commute" />
+          <EntitySet Name="CommuteLocations" EntityType="Self.CommuteLocation" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Makes" EntityType="Self.Make" />
+          <EntitySet Name="Models" EntityType="Self.Model" />
+          <EntitySet Name="Options" EntityType="Self.Option" />
+          <EntitySet Name="TransportMethods" EntityType="Self.TransportMethod" />
+          <EntitySet Name="UTMs" EntityType="Self.UTM" />
+          <EntitySet Name="Years" EntityType="Self.Year" />
+          <AssociationSet Name="FK_Commute_TransportMethod" Association="Self.FK_Commute_TransportMethod">
+            <End Role="TransportMethod" EntitySet="TransportMethods" />
+            <End Role="Commute" EntitySet="Commutes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommuteLocation_Commute" Association="Self.FK_CommuteLocation_Commute">
+            <End Role="Commute" EntitySet="Commutes" />
+            <End Role="CommuteLocation" EntitySet="CommuteLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommuteLocation_Locations" Association="Self.FK_CommuteLocation_Locations">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="CommuteLocation" EntitySet="CommuteLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locations_Locations" Association="Self.FK_Locations_Locations">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Locations1" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportMethod_Make" Association="Self.FK_TransportMethod_Make">
+            <End Role="Make" EntitySet="Makes" />
+            <End Role="TransportMethod" EntitySet="TransportMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportMethod_Model" Association="Self.FK_TransportMethod_Model">
+            <End Role="Model" EntitySet="Models" />
+            <End Role="TransportMethod" EntitySet="TransportMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportMethod_Option" Association="Self.FK_TransportMethod_Option">
+            <End Role="Option" EntitySet="Options" />
+            <End Role="TransportMethod" EntitySet="TransportMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransportMethod_Year" Association="Self.FK_TransportMethod_Year">
+            <End Role="Year" EntitySet="Years" />
+            <End Role="TransportMethod" EntitySet="TransportMethods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTM_TransportMethod" Association="Self.FK_UTM_TransportMethod">
+            <End Role="TransportMethod" EntitySet="TransportMethods" />
+            <End Role="UTM" EntitySet="UTMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTM_UTM" Association="Self.FK_UTM_UTM">
+            <End Role="UTM" EntitySet="UTMs" />
+            <End Role="UTM1" EntitySet="UTMs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AQACommuteDBModelStoreContainer" CdmEntityContainer="AQACommuteDBEntities">
+          <EntitySetMapping Name="Commutes">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.Commute">
+              <MappingFragment StoreEntitySet="Commute">
+                <ScalarProperty Name="CommuteID" ColumnName="CommuteID" />
+                <ScalarProperty Name="CommuteTime" ColumnName="CommuteTime" />
+                <ScalarProperty Name="StartPoint" ColumnName="StartPoint" />
+                <ScalarProperty Name="EndPoint" ColumnName="EndPoint" />
+                <ScalarProperty Name="TotalMiles" ColumnName="TotalMiles" />
+                <ScalarProperty Name="CO2GeneratedLbs" ColumnName="CO2GeneratedLbs" />
+                <ScalarProperty Name="TransportMethodID" ColumnName="TransportMethodID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommuteLocations">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.CommuteLocation">
+              <MappingFragment StoreEntitySet="CommuteLocation">
+                <ScalarProperty Name="CommuteLocationID" ColumnName="CommuteLocationID" />
+                <ScalarProperty Name="LocationsID" ColumnName="LocationsID" />
+                <ScalarProperty Name="CommuteID" ColumnName="CommuteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="LocationsID" ColumnName="LocationsID" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="LocationAddress" ColumnName="LocationAddress" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Makes">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.Make">
+              <MappingFragment StoreEntitySet="Make">
+                <ScalarProperty Name="MakeID" ColumnName="MakeID" />
+                <ScalarProperty Name="MakeName" ColumnName="MakeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Models">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.Model">
+              <MappingFragment StoreEntitySet="Model">
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Options">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.Option">
+              <MappingFragment StoreEntitySet="Option">
+                <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+                <ScalarProperty Name="OptionName" ColumnName="OptionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransportMethods">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.TransportMethod">
+              <MappingFragment StoreEntitySet="TransportMethod">
+                <ScalarProperty Name="TransportMethodID" ColumnName="TransportMethodID" />
+                <ScalarProperty Name="TransportMode" ColumnName="TransportMode" />
+                <ScalarProperty Name="TransportClass" ColumnName="TransportClass" />
+                <ScalarProperty Name="AvgMPG" ColumnName="AvgMPG" />
+                <ScalarProperty Name="CityMPG" ColumnName="CityMPG" />
+                <ScalarProperty Name="HwyMPG" ColumnName="HwyMPG" />
+                <ScalarProperty Name="CO2Lbs" ColumnName="CO2Lbs" />
+                <ScalarProperty Name="MakeID" ColumnName="MakeID" />
+                <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="OptionID" ColumnName="OptionID" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Options" ColumnName="Options" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UTMs">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.UTM">
+              <MappingFragment StoreEntitySet="UTM">
+                <ScalarProperty Name="UTMID" ColumnName="UTMID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TransportMethodID" ColumnName="TransportMethodID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Years">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.Year">
+              <MappingFragment StoreEntitySet="Year">
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="Year1" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
