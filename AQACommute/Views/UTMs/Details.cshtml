@@ -1,0 +1,50 @@
+﻿@model AQACommute.Models.UTM
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UTM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransportMethod.TransportMode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransportMethod.TransportMode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UTM1.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UTM1.UserID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UTM2.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UTM2.UserID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UTMID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

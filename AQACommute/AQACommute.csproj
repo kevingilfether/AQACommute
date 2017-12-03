@@ -182,36 +182,63 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommuteLocationsController.cs" />
     <Compile Include="Controllers\CommutesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\MakesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\VehiclesController.cs" />
+    <Compile Include="Controllers\ModelsController.cs" />
+    <Compile Include="Controllers\TransportMethodsController.cs" />
+    <Compile Include="Controllers\UTMsController.cs" />
+    <Compile Include="Controllers\YearsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AQAdbMVP.Context.cs">
+    <Compile Include="Models\AQADBFull.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AQAdbMVP.Context.tt</DependentUpon>
+      <DependentUpon>AQADBFull.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AQAdbMVP.cs">
+    <Compile Include="Models\AQADBFull.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AQAdbMVP.tt</DependentUpon>
+      <DependentUpon>AQADBFull.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AQAdbMVP.Designer.cs">
+    <Compile Include="Models\AQADBFull.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AQAdbMVP.edmx</DependentUpon>
+      <DependentUpon>AQADBFull.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Commute.cs">
-      <DependentUpon>AQAdbMVP.tt</DependentUpon>
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CommuteLocation.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Location.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Make.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Vehicle.cs">
-      <DependentUpon>AQAdbMVP.tt</DependentUpon>
+    <Compile Include="Models\Model.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Option.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TransportMethod.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UTM.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Year.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -234,24 +261,24 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Models\AQAdbMVP.edmx">
+    <Content Include="Models\AQADBFull.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AQADBFull.edmx</DependentUpon>
+      <LastGenOutput>AQADBFull.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AQADBFull.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AQADBFull.edmx</DependentUpon>
+      <LastGenOutput>AQADBFull.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\AQADBFull.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AQAdbMVP.Designer.cs</LastGenOutput>
+      <LastGenOutput>AQADBFull.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\AQAdbMVP.edmx.diagram">
-      <DependentUpon>AQAdbMVP.edmx</DependentUpon>
+    <Content Include="Models\AQADBFull.edmx.diagram">
+      <DependentUpon>AQADBFull.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="Models\AQAdbMVP.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AQAdbMVP.edmx</DependentUpon>
-      <LastGenOutput>AQAdbMVP.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AQAdbMVP.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AQAdbMVP.edmx</DependentUpon>
-      <LastGenOutput>AQAdbMVP.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\google-maps-api.custom.js" />
@@ -304,17 +331,47 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Resources.cshtml" />
     <Content Include="Views\Commutes\Create.cshtml" />
     <Content Include="Views\Commutes\Delete.cshtml" />
     <Content Include="Views\Commutes\Details.cshtml" />
     <Content Include="Views\Commutes\Edit.cshtml" />
     <Content Include="Views\Commutes\Index.cshtml" />
-    <Content Include="Views\Vehicles\Create.cshtml" />
-    <Content Include="Views\Vehicles\Delete.cshtml" />
-    <Content Include="Views\Vehicles\Details.cshtml" />
-    <Content Include="Views\Vehicles\Edit.cshtml" />
-    <Content Include="Views\Vehicles\Index.cshtml" />
-    <Content Include="Views\Home\Resources.cshtml" />
+    <Content Include="Views\CommuteLocations\Create.cshtml" />
+    <Content Include="Views\CommuteLocations\Delete.cshtml" />
+    <Content Include="Views\CommuteLocations\Details.cshtml" />
+    <Content Include="Views\CommuteLocations\Edit.cshtml" />
+    <Content Include="Views\CommuteLocations\Index.cshtml" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\Makes\Create.cshtml" />
+    <Content Include="Views\Makes\Delete.cshtml" />
+    <Content Include="Views\Makes\Details.cshtml" />
+    <Content Include="Views\Makes\Edit.cshtml" />
+    <Content Include="Views\Makes\Index.cshtml" />
+    <Content Include="Views\Models\Create.cshtml" />
+    <Content Include="Views\Models\Delete.cshtml" />
+    <Content Include="Views\Models\Details.cshtml" />
+    <Content Include="Views\Models\Edit.cshtml" />
+    <Content Include="Views\Models\Index.cshtml" />
+    <Content Include="Views\TransportMethods\Create.cshtml" />
+    <Content Include="Views\TransportMethods\Delete.cshtml" />
+    <Content Include="Views\TransportMethods\Details.cshtml" />
+    <Content Include="Views\TransportMethods\Edit.cshtml" />
+    <Content Include="Views\TransportMethods\Index.cshtml" />
+    <Content Include="Views\UTMs\Create.cshtml" />
+    <Content Include="Views\UTMs\Delete.cshtml" />
+    <Content Include="Views\UTMs\Details.cshtml" />
+    <Content Include="Views\UTMs\Edit.cshtml" />
+    <Content Include="Views\UTMs\Index.cshtml" />
+    <Content Include="Views\Years\Create.cshtml" />
+    <Content Include="Views\Years\Delete.cshtml" />
+    <Content Include="Views\Years\Details.cshtml" />
+    <Content Include="Views\Years\Edit.cshtml" />
+    <Content Include="Views\Years\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -342,7 +399,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49811</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

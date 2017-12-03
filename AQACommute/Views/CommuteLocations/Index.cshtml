@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AQACommute.Models.CommuteLocation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Commute.CommuteTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Commute.CommuteTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.LocationName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CommuteLocationID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CommuteLocationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CommuteLocationID })
+        </td>
+    </tr>
+}
+
+</table>
