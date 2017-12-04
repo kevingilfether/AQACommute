@@ -27,7 +27,6 @@ namespace AQACommute.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CommuteLocation> CommuteLocations { get; set; }
-        public virtual Location Locations1 { get; set; }
-        public virtual Location Location1 { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

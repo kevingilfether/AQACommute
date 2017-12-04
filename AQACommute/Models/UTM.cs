@@ -19,7 +19,6 @@ namespace AQACommute.Models
         public int TransportMethodID { get; set; }
     
         public virtual TransportMethod TransportMethod { get; set; }
-        public virtual UTM UTM1 { get; set; }
-        public virtual UTM UTM2 { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

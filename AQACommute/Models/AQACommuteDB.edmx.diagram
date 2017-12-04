@@ -17,13 +17,11 @@
         <AssociationConnector Association="AQACommuteDBModel.FK_Commute_TransportMethod" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_CommuteLocation_Commute" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_CommuteLocation_Locations" ManuallyRouted="false" />
-        <AssociationConnector Association="AQACommuteDBModel.FK_Locations_Locations" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_TransportMethod_Make" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_TransportMethod_Model" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_TransportMethod_Option" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_TransportMethod_Year" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_UTM_TransportMethod" ManuallyRouted="false" />
-        <AssociationConnector Association="AQACommuteDBModel.FK_UTM_UTM" ManuallyRouted="false" />
         <EntityTypeShape EntityType="AQACommuteDBModel.AspNetUser" Width="1.5" PointX="3" PointY="7.875" />
         <AssociationConnector Association="AQACommuteDBModel.FK_Locations_AspNetUsers" />
         <AssociationConnector Association="AQACommuteDBModel.FK_UTM_AspNetUsers" />

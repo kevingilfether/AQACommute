@@ -5,6 +5,23 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="AQACommuteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
         <EntityType Name="Commute">
           <Key>
             <PropertyRef Name="CommuteID" />
@@ -126,6 +143,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Locations_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TransportMethod_Make">
           <End Role="Make" Type="Self.Make" Multiplicity="0..1" />
           <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
@@ -174,6 +203,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UTM_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="UTM" Type="Self.UTM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UTM">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UTM_TransportMethod">
           <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="1" />
           <End Role="UTM" Type="Self.UTM" Multiplicity="*" />
@@ -187,6 +228,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AQACommuteDBModelStoreContainer">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Commute" EntityType="Self.Commute" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CommuteLocation" EntityType="Self.CommuteLocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
@@ -208,6 +250,10 @@
             <End Role="Locations" EntitySet="Locations" />
             <End Role="CommuteLocation" EntitySet="CommuteLocation" />
           </AssociationSet>
+          <AssociationSet Name="FK_Locations_AspNetUsers" Association="Self.FK_Locations_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
           <AssociationSet Name="FK_TransportMethod_Make" Association="Self.FK_TransportMethod_Make">
             <End Role="Make" EntitySet="Make" />
             <End Role="TransportMethod" EntitySet="TransportMethod" />
@@ -223,6 +269,10 @@
           <AssociationSet Name="FK_TransportMethod_Year" Association="Self.FK_TransportMethod_Year">
             <End Role="Year" EntitySet="Year" />
             <End Role="TransportMethod" EntitySet="TransportMethod" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTM_AspNetUsers" Association="Self.FK_UTM_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UTM" EntitySet="UTM" />
           </AssociationSet>
           <AssociationSet Name="FK_UTM_TransportMethod" Association="Self.FK_UTM_TransportMethod">
             <End Role="TransportMethod" EntitySet="TransportMethod" />
@@ -266,8 +316,7 @@
           <Property Name="LocationAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="CommuteLocations" Relationship="Self.FK_CommuteLocation_Locations" FromRole="Locations" ToRole="CommuteLocation" />
-          <NavigationProperty Name="Locations1" Relationship="Self.FK_Locations_Locations" FromRole="Locations" ToRole="Locations1" />
-          <NavigationProperty Name="Location1" Relationship="Self.FK_Locations_Locations" FromRole="Locations1" ToRole="Locations" />
+          <NavigationProperty Name="AspNetUser" Relationship="AQACommuteDBModel.FK_Locations_AspNetUsers" FromRole="Location" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="Make">
           <Key>
@@ -327,8 +376,7 @@
           <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TransportMethodID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TransportMethod" Relationship="Self.FK_UTM_TransportMethod" FromRole="UTM" ToRole="TransportMethod" />
-          <NavigationProperty Name="UTM1" Relationship="Self.FK_UTM_UTM" FromRole="UTM" ToRole="UTM1" />
-          <NavigationProperty Name="UTM2" Relationship="Self.FK_UTM_UTM" FromRole="UTM1" ToRole="UTM" />
+          <NavigationProperty Name="AspNetUser" Relationship="AQACommuteDBModel.FK_UTM_AspNetUsers" FromRole="UTM" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="Year">
           <Key>
@@ -370,18 +418,6 @@
               <PropertyRef Name="LocationsID" />
             </Principal>
             <Dependent Role="CommuteLocation">
-              <PropertyRef Name="LocationsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Locations_Locations">
-          <End Role="Locations" Type="Self.Location" Multiplicity="1" />
-          <End Role="Locations1" Type="Self.Location" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationsID" />
-            </Principal>
-            <Dependent Role="Locations1">
               <PropertyRef Name="LocationsID" />
             </Dependent>
           </ReferentialConstraint>
@@ -446,18 +482,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UTM_UTM">
-          <End Role="UTM" Type="Self.UTM" Multiplicity="1" />
-          <End Role="UTM1" Type="Self.UTM" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="UTM">
-              <PropertyRef Name="UTMID" />
-            </Principal>
-            <Dependent Role="UTM1">
-              <PropertyRef Name="UTMID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="AQACommuteDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Commutes" EntityType="Self.Commute" />
           <EntitySet Name="CommuteLocations" EntityType="Self.CommuteLocation" />
@@ -480,10 +504,6 @@
             <End Role="Locations" EntitySet="Locations" />
             <End Role="CommuteLocation" EntitySet="CommuteLocations" />
           </AssociationSet>
-          <AssociationSet Name="FK_Locations_Locations" Association="Self.FK_Locations_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="Locations1" EntitySet="Locations" />
-          </AssociationSet>
           <AssociationSet Name="FK_TransportMethod_Make" Association="Self.FK_TransportMethod_Make">
             <End Role="Make" EntitySet="Makes" />
             <End Role="TransportMethod" EntitySet="TransportMethods" />
@@ -504,11 +524,59 @@
             <End Role="TransportMethod" EntitySet="TransportMethods" />
             <End Role="UTM" EntitySet="UTMs" />
           </AssociationSet>
-          <AssociationSet Name="FK_UTM_UTM" Association="Self.FK_UTM_UTM">
+          <EntitySet Name="AspNetUsers" EntityType="AQACommuteDBModel.AspNetUser" />
+          <AssociationSet Name="FK_Locations_AspNetUsers" Association="AQACommuteDBModel.FK_Locations_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTM_AspNetUsers" Association="AQACommuteDBModel.FK_UTM_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="UTM" EntitySet="UTMs" />
-            <End Role="UTM1" EntitySet="UTMs" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Locations" Relationship="AQACommuteDBModel.FK_Locations_AspNetUsers" FromRole="AspNetUser" ToRole="Location" />
+          <NavigationProperty Name="UTMs" Relationship="AQACommuteDBModel.FK_UTM_AspNetUsers" FromRole="AspNetUser" ToRole="UTM" />
+        </EntityType>
+        <Association Name="FK_Locations_AspNetUsers">
+          <End Type="AQACommuteDBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="AQACommuteDBModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTM_AspNetUsers">
+          <End Type="AQACommuteDBModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="AQACommuteDBModel.UTM" Role="UTM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UTM">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -606,6 +674,24 @@
               <MappingFragment StoreEntitySet="Year">
                 <ScalarProperty Name="YearID" ColumnName="YearID" />
                 <ScalarProperty Name="Year1" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="AQACommuteDBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

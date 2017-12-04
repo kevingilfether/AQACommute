@@ -1,0 +1,130 @@
+﻿@model AQACommute.Models.TransportMethod
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TransportMethod</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TransportMode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransportMode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransportClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransportClass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvgMPG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvgMPG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityMPG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityMPG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HwyMPG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HwyMPG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CO2Lbs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CO2Lbs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Make)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Make)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Options)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Options)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Make1.MakeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Make1.MakeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model1.ModelName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model1.ModelName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Option.OptionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Option.OptionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year1.Year1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year1.Year1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TransportMethodID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -34,5 +34,6 @@ namespace AQACommute.Models
         public virtual DbSet<TransportMethod> TransportMethods { get; set; }
         public virtual DbSet<UTM> UTMs { get; set; }
         public virtual DbSet<Year> Years { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
     }
 }

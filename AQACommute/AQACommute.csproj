@@ -182,8 +182,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommuteLocationsController.cs" />
+    <Compile Include="Controllers\CommutesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\MakesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ModelsController.cs" />
+    <Compile Include="Controllers\OptionsController.cs" />
+    <Compile Include="Controllers\TransportMethodsController.cs" />
+    <Compile Include="Controllers\UTMsController.cs" />
+    <Compile Include="Controllers\YearsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +211,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AQACommuteDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Commute.cs">
       <DependentUpon>AQACommuteDB.tt</DependentUpon>
@@ -326,6 +338,51 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Resources.cshtml" />
+    <Content Include="Views\Commutes\Create.cshtml" />
+    <Content Include="Views\Commutes\Delete.cshtml" />
+    <Content Include="Views\Commutes\Details.cshtml" />
+    <Content Include="Views\Commutes\Edit.cshtml" />
+    <Content Include="Views\Commutes\Index.cshtml" />
+    <Content Include="Views\CommuteLocations\Create.cshtml" />
+    <Content Include="Views\CommuteLocations\Delete.cshtml" />
+    <Content Include="Views\CommuteLocations\Details.cshtml" />
+    <Content Include="Views\CommuteLocations\Edit.cshtml" />
+    <Content Include="Views\CommuteLocations\Index.cshtml" />
+    <Content Include="Views\Models\Create.cshtml" />
+    <Content Include="Views\Models\Delete.cshtml" />
+    <Content Include="Views\Models\Details.cshtml" />
+    <Content Include="Views\Models\Edit.cshtml" />
+    <Content Include="Views\Models\Index.cshtml" />
+    <Content Include="Views\TransportMethods\Create.cshtml" />
+    <Content Include="Views\TransportMethods\Delete.cshtml" />
+    <Content Include="Views\TransportMethods\Details.cshtml" />
+    <Content Include="Views\TransportMethods\Edit.cshtml" />
+    <Content Include="Views\TransportMethods\Index.cshtml" />
+    <Content Include="Views\Makes\Create.cshtml" />
+    <Content Include="Views\Makes\Delete.cshtml" />
+    <Content Include="Views\Makes\Details.cshtml" />
+    <Content Include="Views\Makes\Edit.cshtml" />
+    <Content Include="Views\Makes\Index.cshtml" />
+    <Content Include="Views\UTMs\Create.cshtml" />
+    <Content Include="Views\UTMs\Delete.cshtml" />
+    <Content Include="Views\UTMs\Details.cshtml" />
+    <Content Include="Views\UTMs\Edit.cshtml" />
+    <Content Include="Views\UTMs\Index.cshtml" />
+    <Content Include="Views\Options\Create.cshtml" />
+    <Content Include="Views\Options\Delete.cshtml" />
+    <Content Include="Views\Options\Details.cshtml" />
+    <Content Include="Views\Options\Edit.cshtml" />
+    <Content Include="Views\Options\Index.cshtml" />
+    <Content Include="Views\Years\Create.cshtml" />
+    <Content Include="Views\Years\Delete.cshtml" />
+    <Content Include="Views\Years\Details.cshtml" />
+    <Content Include="Views\Years\Edit.cshtml" />
+    <Content Include="Views\Years\Index.cshtml" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
