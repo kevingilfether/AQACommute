@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AQACommuteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AQACommuteDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Commute">
           <Key>
             <PropertyRef Name="CommuteID" />
@@ -126,18 +126,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Locations_Locations">
-          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
-          <End Role="Locations1" Type="Self.Locations" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Locations">
-              <PropertyRef Name="LocationsID" />
-            </Principal>
-            <Dependent Role="Locations1">
-              <PropertyRef Name="LocationsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TransportMethod_Make">
           <End Role="Make" Type="Self.Make" Multiplicity="0..1" />
           <End Role="TransportMethod" Type="Self.TransportMethod" Multiplicity="*" />
@@ -198,18 +186,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UTM_UTM">
-          <End Role="UTM" Type="Self.UTM" Multiplicity="1" />
-          <End Role="UTM1" Type="Self.UTM" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="UTM">
-              <PropertyRef Name="UTMID" />
-            </Principal>
-            <Dependent Role="UTM1">
-              <PropertyRef Name="UTMID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="AQACommuteDBModelStoreContainer">
           <EntitySet Name="Commute" EntityType="Self.Commute" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CommuteLocation" EntityType="Self.CommuteLocation" Schema="dbo" store:Type="Tables" />
@@ -232,10 +208,6 @@
             <End Role="Locations" EntitySet="Locations" />
             <End Role="CommuteLocation" EntitySet="CommuteLocation" />
           </AssociationSet>
-          <AssociationSet Name="FK_Locations_Locations" Association="Self.FK_Locations_Locations">
-            <End Role="Locations" EntitySet="Locations" />
-            <End Role="Locations1" EntitySet="Locations" />
-          </AssociationSet>
           <AssociationSet Name="FK_TransportMethod_Make" Association="Self.FK_TransportMethod_Make">
             <End Role="Make" EntitySet="Make" />
             <End Role="TransportMethod" EntitySet="TransportMethod" />
@@ -256,13 +228,8 @@
             <End Role="TransportMethod" EntitySet="TransportMethod" />
             <End Role="UTM" EntitySet="UTM" />
           </AssociationSet>
-          <AssociationSet Name="FK_UTM_UTM" Association="Self.FK_UTM_UTM">
-            <End Role="UTM" EntitySet="UTM" />
-            <End Role="UTM1" EntitySet="UTM" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AQACommuteDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

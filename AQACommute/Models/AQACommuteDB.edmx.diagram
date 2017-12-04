@@ -24,6 +24,9 @@
         <AssociationConnector Association="AQACommuteDBModel.FK_TransportMethod_Year" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_UTM_TransportMethod" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_UTM_UTM" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AQACommuteDBModel.AspNetUser" Width="1.5" PointX="3" PointY="7.875" />
+        <AssociationConnector Association="AQACommuteDBModel.FK_Locations_AspNetUsers" />
+        <AssociationConnector Association="AQACommuteDBModel.FK_UTM_AspNetUsers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
