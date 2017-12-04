@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AQACommute.Models.Location>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocationAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Locations1.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location1.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocationAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Locations1.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location1.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LocationsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LocationsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LocationsID })
+        </td>
+    </tr>
+}
+
+</table>

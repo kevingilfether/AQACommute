@@ -24,12 +24,23 @@
         <AssociationConnector Association="AQACommuteDBModel.FK_TransportMethod_Year" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_UTM_TransportMethod" ManuallyRouted="false" />
         <AssociationConnector Association="AQACommuteDBModel.FK_UTM_UTM" ManuallyRouted="true" >
-          <ConnectorPoint PointX="5.7819230769230767" PointY="6.797587890625" />
-          <ConnectorPoint PointX="5.7923397435897446" PointY="6.8800878906249991" />
-          <ConnectorPoint PointX="5.7923397435897446" PointY="7.1309212239583335" />
-          <ConnectorPoint PointX="6.2284615384615378" PointY="7.1309212239583335" />
-          <ConnectorPoint PointX="6.2284615384615378" PointY="6.797587890625" />
+          <ConnectorPoint PointX="5.3752016383353123" PointY="6.9898893229166665" />
+          <ConnectorPoint PointX="5.7923397435897446" PointY="42.468605139923078" />
+          <ConnectorPoint PointX="5.7923397435897446" PointY="42.71943847325641" />
+          <ConnectorPoint PointX="6.2284615384615378" PointY="42.71943847325641" />
+          <ConnectorPoint PointX="6.2284615384615378" PointY="6.9898893229166665" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="AQACommuteDBModel.C__MigrationHistory" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="AQACommuteDBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="10.875" />
+        <EntityTypeShape EntityType="AQACommuteDBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="12.5" />
+        <EntityTypeShape EntityType="AQACommuteDBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="15.125" />
+        <EntityTypeShape EntityType="AQACommuteDBModel.AspNetUser" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="AQACommuteDBModel.sysdiagram" Width="1.5" PointX="7.375" PointY="7.75" />
+        <AssociationConnector Association="AQACommuteDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="AQACommuteDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="AQACommuteDBModel.FK_Locations_AspNetUsers" />
+        <AssociationConnector Association="AQACommuteDBModel.FK_UTM_AspNetUsers" />
+        <AssociationConnector Association="AQACommuteDBModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

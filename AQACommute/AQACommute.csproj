@@ -182,6 +182,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AspNetUsersController.cs" />
     <Compile Include="Controllers\CommuteLocationsController.cs" />
     <Compile Include="Controllers\CommutesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Controllers\MakesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ModelsController.cs" />
+    <Compile Include="Controllers\OptionsController.cs" />
     <Compile Include="Controllers\TransportMethodsController.cs" />
     <Compile Include="Controllers\UTMsController.cs" />
     <Compile Include="Controllers\YearsController.cs" />
@@ -211,10 +213,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AQADBFull.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Commute.cs">
       <DependentUpon>AQADBFull.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CommuteLocation.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>AQADBFull.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -229,6 +246,9 @@
       <DependentUpon>AQADBFull.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Option.cs">
+      <DependentUpon>AQADBFull.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>AQADBFull.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TransportMethod.cs">
@@ -332,6 +352,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Resources.cshtml" />
+    <Content Include="Views\AspNetUsers\Create.cshtml" />
+    <Content Include="Views\AspNetUsers\Delete.cshtml" />
+    <Content Include="Views\AspNetUsers\Details.cshtml" />
+    <Content Include="Views\AspNetUsers\Edit.cshtml" />
+    <Content Include="Views\AspNetUsers\Index.cshtml" />
     <Content Include="Views\Commutes\Create.cshtml" />
     <Content Include="Views\Commutes\Delete.cshtml" />
     <Content Include="Views\Commutes\Details.cshtml" />
@@ -357,6 +382,11 @@
     <Content Include="Views\Models\Details.cshtml" />
     <Content Include="Views\Models\Edit.cshtml" />
     <Content Include="Views\Models\Index.cshtml" />
+    <Content Include="Views\Options\Create.cshtml" />
+    <Content Include="Views\Options\Delete.cshtml" />
+    <Content Include="Views\Options\Details.cshtml" />
+    <Content Include="Views\Options\Edit.cshtml" />
+    <Content Include="Views\Options\Index.cshtml" />
     <Content Include="Views\TransportMethods\Create.cshtml" />
     <Content Include="Views\TransportMethods\Delete.cshtml" />
     <Content Include="Views\TransportMethods\Details.cshtml" />

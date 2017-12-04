@@ -12,15 +12,12 @@ namespace AQACommute.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UTM
+    public partial class sysdiagram
     {
-        public int UTMID { get; set; }
-        public string UserID { get; set; }
-        public int TransportMethodID { get; set; }
-    
-        public virtual TransportMethod TransportMethod { get; set; }
-        public virtual UTM UTM1 { get; set; }
-        public virtual UTM UTM2 { get; set; }
-        public virtual AspNetUser AspNetUser { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -12,15 +12,11 @@ namespace AQACommute.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UTM
+    public partial class C__MigrationHistory
     {
-        public int UTMID { get; set; }
-        public string UserID { get; set; }
-        public int TransportMethodID { get; set; }
-    
-        public virtual TransportMethod TransportMethod { get; set; }
-        public virtual UTM UTM1 { get; set; }
-        public virtual UTM UTM2 { get; set; }
-        public virtual AspNetUser AspNetUser { get; set; }
+        public string MigrationId { get; set; }
+        public string ContextKey { get; set; }
+        public byte[] Model { get; set; }
+        public string ProductVersion { get; set; }
     }
 }

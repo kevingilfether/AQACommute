@@ -12,15 +12,13 @@ namespace AQACommute.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UTM
+    public partial class AspNetUserClaim
     {
-        public int UTMID { get; set; }
-        public string UserID { get; set; }
-        public int TransportMethodID { get; set; }
+        public int Id { get; set; }
+        public string UserId { get; set; }
+        public string ClaimType { get; set; }
+        public string ClaimValue { get; set; }
     
-        public virtual TransportMethod TransportMethod { get; set; }
-        public virtual UTM UTM1 { get; set; }
-        public virtual UTM UTM2 { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
     }
 }

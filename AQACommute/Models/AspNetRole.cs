@@ -12,23 +12,18 @@ namespace AQACommute.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Location
+    public partial class AspNetRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Location()
+        public AspNetRole()
         {
-            this.CommuteLocations = new HashSet<CommuteLocation>();
+            this.AspNetUsers = new HashSet<AspNetUser>();
         }
     
-        public int LocationsID { get; set; }
-        public string LocationName { get; set; }
-        public string LocationAddress { get; set; }
-        public string UserID { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CommuteLocation> CommuteLocations { get; set; }
-        public virtual Location Locations1 { get; set; }
-        public virtual Location Location1 { get; set; }
-        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

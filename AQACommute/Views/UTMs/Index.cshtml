@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AQACommute.Models.UTM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TransportMethod.TransportMode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UTM1.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UTM2.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TransportMethod.TransportMode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UTM1.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UTM2.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UTMID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UTMID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UTMID })
+        </td>
+    </tr>
+}
+
+</table>
