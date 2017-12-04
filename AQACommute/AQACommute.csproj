@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44337</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -182,63 +182,55 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CommuteLocationsController.cs" />
-    <Compile Include="Controllers\CommutesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LocationsController.cs" />
-    <Compile Include="Controllers\MakesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ModelsController.cs" />
-    <Compile Include="Controllers\TransportMethodsController.cs" />
-    <Compile Include="Controllers\UTMsController.cs" />
-    <Compile Include="Controllers\YearsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AQADBFull.Context.cs">
+    <Compile Include="Models\AQACommuteDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AQADBFull.Context.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AQADBFull.cs">
+    <Compile Include="Models\AQACommuteDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AQADBFull.Designer.cs">
+    <Compile Include="Models\AQACommuteDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AQADBFull.edmx</DependentUpon>
+      <DependentUpon>AQACommuteDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Commute.cs">
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CommuteLocation.cs">
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Location.cs">
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Make.cs">
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Model.cs">
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Option.cs">
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TransportMethod.cs">
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UTM.cs">
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Year.cs">
-      <DependentUpon>AQADBFull.tt</DependentUpon>
+      <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -261,24 +253,24 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Models\AQADBFull.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AQADBFull.edmx</DependentUpon>
-      <LastGenOutput>AQADBFull.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AQADBFull.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AQADBFull.edmx</DependentUpon>
-      <LastGenOutput>AQADBFull.cs</LastGenOutput>
-    </Content>
-    <EntityDeploy Include="Models\AQADBFull.edmx">
+    <EntityDeploy Include="Models\AQACommuteDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AQADBFull.Designer.cs</LastGenOutput>
+      <LastGenOutput>AQACommuteDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\AQADBFull.edmx.diagram">
-      <DependentUpon>AQADBFull.edmx</DependentUpon>
+    <Content Include="Models\AQACommuteDB.edmx.diagram">
+      <DependentUpon>AQACommuteDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Models\AQACommuteDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AQACommuteDB.edmx</DependentUpon>
+      <LastGenOutput>AQACommuteDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AQACommuteDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AQACommuteDB.edmx</DependentUpon>
+      <LastGenOutput>AQACommuteDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\google-maps-api.custom.js" />
@@ -297,7 +289,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -332,46 +326,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Resources.cshtml" />
-    <Content Include="Views\Commutes\Create.cshtml" />
-    <Content Include="Views\Commutes\Delete.cshtml" />
-    <Content Include="Views\Commutes\Details.cshtml" />
-    <Content Include="Views\Commutes\Edit.cshtml" />
-    <Content Include="Views\Commutes\Index.cshtml" />
-    <Content Include="Views\CommuteLocations\Create.cshtml" />
-    <Content Include="Views\CommuteLocations\Delete.cshtml" />
-    <Content Include="Views\CommuteLocations\Details.cshtml" />
-    <Content Include="Views\CommuteLocations\Edit.cshtml" />
-    <Content Include="Views\CommuteLocations\Index.cshtml" />
-    <Content Include="Views\Locations\Create.cshtml" />
-    <Content Include="Views\Locations\Delete.cshtml" />
-    <Content Include="Views\Locations\Details.cshtml" />
-    <Content Include="Views\Locations\Edit.cshtml" />
-    <Content Include="Views\Locations\Index.cshtml" />
-    <Content Include="Views\Makes\Create.cshtml" />
-    <Content Include="Views\Makes\Delete.cshtml" />
-    <Content Include="Views\Makes\Details.cshtml" />
-    <Content Include="Views\Makes\Edit.cshtml" />
-    <Content Include="Views\Makes\Index.cshtml" />
-    <Content Include="Views\Models\Create.cshtml" />
-    <Content Include="Views\Models\Delete.cshtml" />
-    <Content Include="Views\Models\Details.cshtml" />
-    <Content Include="Views\Models\Edit.cshtml" />
-    <Content Include="Views\Models\Index.cshtml" />
-    <Content Include="Views\TransportMethods\Create.cshtml" />
-    <Content Include="Views\TransportMethods\Delete.cshtml" />
-    <Content Include="Views\TransportMethods\Details.cshtml" />
-    <Content Include="Views\TransportMethods\Edit.cshtml" />
-    <Content Include="Views\TransportMethods\Index.cshtml" />
-    <Content Include="Views\UTMs\Create.cshtml" />
-    <Content Include="Views\UTMs\Delete.cshtml" />
-    <Content Include="Views\UTMs\Details.cshtml" />
-    <Content Include="Views\UTMs\Edit.cshtml" />
-    <Content Include="Views\UTMs\Index.cshtml" />
-    <Content Include="Views\Years\Create.cshtml" />
-    <Content Include="Views\Years\Delete.cshtml" />
-    <Content Include="Views\Years\Details.cshtml" />
-    <Content Include="Views\Years\Edit.cshtml" />
-    <Content Include="Views\Years\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
