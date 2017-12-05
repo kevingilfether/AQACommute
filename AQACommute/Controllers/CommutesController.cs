@@ -52,6 +52,34 @@ namespace AQACommute.Controllers
         {
             if (ModelState.IsValid)
             {
+                //vehicle MPG Avg
+
+                var myMPG = from test in db.TransportMethods
+                            where test.TransportMethodID == commute.TransportMethodID
+                            select test.AvgMPG;
+                double mpgAvg = 0;
+
+
+
+                foreach(var mpg in myMPG)
+                {
+
+                    mpgAvg = mpg;
+
+                }
+
+                //C02Footprint calculation
+
+                //double d2 = 0;
+
+                //if (commute.TotalMiles.HasValue)
+                //{ d2 = (double)commute.TotalMiles; }
+
+                commute.CO2GeneratedLbs = (100 / mpgAvg) * 20;
+
+
+                //commute.CO2GeneratedLbs = (d2 / mpgAvg) * 20;
+
                 db.Commutes.Add(commute);
                 db.SaveChanges();
                 return RedirectToAction("Index");
