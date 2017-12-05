@@ -16,15 +16,30 @@ namespace AQACommute.Controllers
         
         private AQACommuteDBEntities db = new AQACommuteDBEntities();
 
-        double test;
+        double help = 55;
 
         // GET: Commutes
         public ActionResult Index()
         {
+            
+
             var commutes = db.Commutes.Include(c => c.TransportMethod);
 
-            //ViewBag.CuyahogaCounty = test;
-            //ViewBag.CuyahogaCounty = "Your C02 footprint is 10.21% of Cuyahoga County's";
+            //var misplaced = db.Commutes.Include(c => c.CO2GeneratedLbs);
+
+            //var wow = from test in db.Commutes
+            //            where test.CommuteID == test.CommuteID
+            //            select test.CO2GeneratedLbs;
+
+            //double lala;
+
+            //foreach (var lbs in wow)
+            //{
+            //    lala = lbs;
+            //}
+
+            ViewBag.CuyahogaCounty = VBPopulate(help);
+            ViewBag.CuyahogaCounty = "Your C02 footprint is 10.21% of Cuyahoga County's";
 
             return View(commutes.ToList());
         }
@@ -61,35 +76,35 @@ namespace AQACommute.Controllers
         {
             if (ModelState.IsValid)
             {
-                //vehicle MPG Avg
+                //        //vehicle MPG Avg
 
 
-                var myMPG = from test in db.TransportMethods
-                            where test.TransportMethodID == test.TransportMethodID
-                            select test.AvgMPG;
+                //        var myMPG = from test in db.TransportMethods
+                //                    where test.TransportMethodID == test.TransportMethodID
+                //                    select test.AvgMPG;
 
-                //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
+                //        //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
 
-                double mpgAvg = 0;
+                //        double mpgAvg = 0;
 
-                foreach (var mpg in myMPG)
-                {
-                    mpgAvg = mpg;
-                }
+                //        foreach (var mpg in myMPG)
+                //        {
+                //            mpgAvg = mpg;
+                //        }
 
-                //C02Footprint calculation
+                //        //C02Footprint calculation
 
-                double d2 = 0;
+                //        double d2 = 0;
 
-                if (commute.TotalMiles.HasValue)
-                { d2 = (double)commute.TotalMiles; }
+                //        if (commute.TotalMiles.HasValue)
+                //        { d2 = (double)commute.TotalMiles; }
 
 
-                test = mpgAvg;
-                commute.CO2GeneratedLbs = (d2 / test) * 20;
-                //test = commute.CO2GeneratedLbs;
 
-                //commute.CO2GeneratedLbs = (100 / mpgAvg) * 20;
+                //        commute.CO2GeneratedLbs = (d2 / mpgAvg) * 20;
+                //        //test = commute.CO2GeneratedLbs;
+
+                //        //commute.CO2GeneratedLbs = (100 / mpgAvg) * 20;
 
                 db.Commutes.Add(commute);
                 db.SaveChanges();
@@ -169,39 +184,41 @@ namespace AQACommute.Controllers
         }
 
 
-        //public double VBPopulate(double view)
-        //{
-        //    //vehicle MPG Avg
+        public double VBPopulate(double seeya)
+        {
+            //vehicle MPG Avg
 
-        //    double okay;
-        //    Commute newCommute = new Commute();
+            double okay;
+            Commute newCommute = new Commute();
 
 
-        //    var myMPG = from test in db.TransportMethods
-        //                where test.TransportMethodID == test.TransportMethodID
-        //                select test.AvgMPG;
+            var myMPG = from test in db.Commutes
+                        where test.CommuteID == test.CommuteID
+                        select test.CO2GeneratedLbs;
 
-        //    //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
+            //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
 
-        //    double mpgAvg = 0;
+            double mpgAvg = 0;
 
-        //    foreach (var mpg in myMPG)
-        //    {
-        //        mpgAvg = mpg;
-        //    }
+            foreach (var mpg in myMPG)
+            {
+                mpgAvg = mpg;
+            }
 
-        //    ////C02Footprint calculation
+            ////C02Footprint calculation
 
-        //    double d2 = 0;
+            double d2 = 0;
 
-        //    if (newCommute.TotalMiles.HasValue)
-        //    { d2 = (double)newCommute.TotalMiles; }
+            if (newCommute.TotalMiles.HasValue)
+            { d2 = (double)newCommute.TotalMiles; }
 
-        //    newCommute.CO2GeneratedLbs = (d2 / mpgAvg) * 20;
-        //    okay = newCommute.CO2GeneratedLbs;
+            newCommute.CO2GeneratedLbs = (d2 / mpgAvg) * 20;
+            okay = newCommute.CO2GeneratedLbs;
 
-        //    return okay;
-        //}
+            return okay;
+
+       
+        }
 
     }
 }
