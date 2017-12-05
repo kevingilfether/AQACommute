@@ -12,7 +12,9 @@
         getTotalDistance();
 
     };
-    document.getElementById('plotPoints').addEventListener('click', onClickHandler);
+    $(function () {
+        $('#plotPoints').on('click', onClickHandler);
+    });
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
@@ -68,13 +70,51 @@ function getTotalDistance() {
                 var results = response.rows[i].elements;
                 for (var j = 0; j < results.length; j++) {
                     var element = results[j];
-                    var distance = element.distance.text;
-                    var duration = element.duration.text;
+                    var distance = element.distance.value;//in meters
+                    var duration = element.duration.value;//in seconds
                     var from = origins[i];
                     var to = destinations[j];
                 }
             }
-            document.getElementById("parseDistanceResult").innerHTML = distance;
-        }
+            $(function () {
+                var mapData = {
+                    DistanceInfo: distance
+                };
+
+                alert(mapData);
+                $.ajax({
+                    async: true,
+                    method: "POST",
+                    url: "Commutes/CO2Calc",
+                    //url: "Commutes/Test",
+                    data: JSON.stringify(mapData),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        alert("Info POSTed");
+                        $("#parseDistanceResult").text(data)
+                    },
+                    error: function (data) {
+                        alert("Error POSTing view info to controller!");
+                        alert(data);
+                    }
+                });
+                //$("#displayReturnValue")
+                //$("#parseDistanceResult").load("Commutes/CO2Calc", function (responseTxt, statusTxt, xhr) {
+                //    alert("pete");
+                //    if (statusTxt == "success")
+                //        alert("External content loaded successfully!");
+                //    if (statusTxt == "error")
+                //        alert("Error: " + xhr.status + ": " + xhr.statusText);
+                //})
+
+                //$('#parseDistanceResult').load("Commutes/Test", function (responseTxt, statusTxt, xhr) {
+                //    if (statusTxt == "success")
+                //        alert("External content loaded successfully!");
+                //    if (statusTxt == "error")
+                //        alert("Error: " + xhr.status + ": " + xhr.statusText);
+                //})
+
+            });
+        };
     }
 }

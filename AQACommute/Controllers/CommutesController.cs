@@ -7,12 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AQACommute.Models;
+using Newtonsoft.Json;
 
 namespace AQACommute.Controllers
 {
     public class CommutesController : Controller
     {
         private AQACommuteDBEntities db = new AQACommuteDBEntities();
+
+
+        //properties for JSON controller
+        public string DistanceInfo { get; set; }
+        public string DurationInfo { get; set; }
+        public double CO2Footprint { get; set; }
 
         // GET: Commutes
         public ActionResult Index()
@@ -154,6 +161,23 @@ namespace AQACommute.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //Calc and map function
+        public JsonResult CO2Calc(CommutesController distance)
+        {
+            string tripDistance = distance.DistanceInfo;
+            //string tripDuration = distance.DurationInfo;
+            string returnValue = tripDistance;
+            if (ModelState.IsValid)
+            {
+
+            }
+            return new JsonResult()
+            {
+                Data = JsonConvert.SerializeObject(returnValue),
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
         }
     }
 }
