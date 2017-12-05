@@ -55,6 +55,7 @@ namespace AQACommute.Controllers
         {
             if (ModelState.IsValid)
             {
+                transportMethod.TransportMode = "Automobile";
                 db.TransportMethods.Add(transportMethod);
                 db.SaveChanges();
                 return RedirectToAction("Index");
