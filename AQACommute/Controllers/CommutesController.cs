@@ -10,14 +10,22 @@ using AQACommute.Models;
 
 namespace AQACommute.Controllers
 {
+   
     public class CommutesController : Controller
     {
+        
         private AQACommuteDBEntities db = new AQACommuteDBEntities();
+
+        double test;
 
         // GET: Commutes
         public ActionResult Index()
         {
             var commutes = db.Commutes.Include(c => c.TransportMethod);
+
+            //ViewBag.CuyahogaCounty = test;
+            //ViewBag.CuyahogaCounty = "Your C02 footprint is 10.21% of Cuyahoga County's";
+
             return View(commutes.ToList());
         }
 
@@ -46,6 +54,7 @@ namespace AQACommute.Controllers
         // POST: Commutes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CommuteID,CommuteTime,StartPoint,EndPoint,TotalMiles,CO2GeneratedLbs,TransportMethodID")] Commute commute)
@@ -63,7 +72,7 @@ namespace AQACommute.Controllers
 
                 double mpgAvg = 0;
 
-                foreach(var mpg in myMPG)
+                foreach (var mpg in myMPG)
                 {
                     mpgAvg = mpg;
                 }
@@ -75,7 +84,10 @@ namespace AQACommute.Controllers
                 if (commute.TotalMiles.HasValue)
                 { d2 = (double)commute.TotalMiles; }
 
-                commute.CO2GeneratedLbs = (d2 / mpgAvg) * 20;
+
+                test = mpgAvg;
+                commute.CO2GeneratedLbs = (d2 / test) * 20;
+                //test = commute.CO2GeneratedLbs;
 
                 //commute.CO2GeneratedLbs = (100 / mpgAvg) * 20;
 
@@ -155,5 +167,41 @@ namespace AQACommute.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        //public double VBPopulate(double view)
+        //{
+        //    //vehicle MPG Avg
+
+        //    double okay;
+        //    Commute newCommute = new Commute();
+
+
+        //    var myMPG = from test in db.TransportMethods
+        //                where test.TransportMethodID == test.TransportMethodID
+        //                select test.AvgMPG;
+
+        //    //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
+
+        //    double mpgAvg = 0;
+
+        //    foreach (var mpg in myMPG)
+        //    {
+        //        mpgAvg = mpg;
+        //    }
+
+        //    ////C02Footprint calculation
+
+        //    double d2 = 0;
+
+        //    if (newCommute.TotalMiles.HasValue)
+        //    { d2 = (double)newCommute.TotalMiles; }
+
+        //    newCommute.CO2GeneratedLbs = (d2 / mpgAvg) * 20;
+        //    okay = newCommute.CO2GeneratedLbs;
+
+        //    return okay;
+        //}
+
     }
 }
