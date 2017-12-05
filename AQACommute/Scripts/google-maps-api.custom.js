@@ -85,8 +85,8 @@ function getTotalDistance() {
                 $.ajax({
                     async: true,
                     method: "POST",
+                    //url: "Commutes/CO2Calc",
                     url: "Commutes/CO2Calc",
-                    //url: "Commutes/Test",
                     data: JSON.stringify(mapData),
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
@@ -94,7 +94,7 @@ function getTotalDistance() {
                         $("#parseDistanceResult").text(data)
                     },
                     error: function (data) {
-                        alert("Error POSTing view info to controller!");
+                        alert("Error pulling view info from controller!");
                         alert(data);
                     }
                 });

@@ -57,6 +57,7 @@ namespace AQACommute.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CommuteID,CommuteTime,StartPoint,EndPoint,TotalMiles,CO2GeneratedLbs,TransportMethodID")] Commute commute)
         {
+            
             if (ModelState.IsValid)
             {
                 //vehicle MPG Avg
@@ -166,9 +167,36 @@ namespace AQACommute.Controllers
         //Calc and map function
         public JsonResult CO2Calc(CommutesController distance)
         {
-            string tripDistance = distance.DistanceInfo;
+            string distanceInfo = distance.DistanceInfo;
             //string tripDuration = distance.DurationInfo;
-            string returnValue = tripDistance;
+
+
+            //convert distanceInfo string to double
+            double distanceInfoToDouble = double.Parse(distanceInfo);
+            //calc to convert distance info from meters to miles
+            double tripDistance = (distanceInfoToDouble / 1609.34);
+
+            //vehicle MPG Avg
+
+
+            //var myMPG = from test in db.TransportMethods
+            //            where test.TransportMethodID == test.TransportMethodID
+            //            select test.AvgMPG;
+
+
+            //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
+
+
+
+            //foreach (var mpg in myMPG)
+            //{
+            //    mpgAvg = mpg;
+            //}
+
+            //C02Footprint calculation
+            double mpgAvg = 20;
+            double co2Lbs = (tripDistance / mpgAvg) * 20;
+            string returnValue = co2Lbs.ToString();
             if (ModelState.IsValid)
             {
 
