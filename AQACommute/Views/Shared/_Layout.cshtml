@@ -6,11 +6,69 @@
     <title>AQA - Air Quality Analysis</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/TemplateStyling.css" rel="stylesheet" />
 
 </head>
 <body>
-    
-    @*//header content starts*@
+
+    <!--NAVBAR-->
+    <nav class="navbar  navbar-static-top navbar-inverse" id="navvy">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"><li class="active"><a href="#">LOGO</a></li></ul>
+                <ul class="nav navbar-nav" style="float: right">
+
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Commutes", "Index", "Commutes")</li>
+                    <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                    @*<li>@Html.ActionLink("Resources", "Index", "Resources")</li>
+                    <li>@Html.ActionLink("Our Team", "Team", "Resources")</li>*@
+                    <li><a href="#">The Team</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <h1>AQA Commute</h1>
+        <p>Your personal Air Quality Analyst -- in your back pocket.</p>
+    </div>
+
+    <!--BODY-->
+    <div class="container content">
+        <div id="wrap" class="border">
+
+            @RenderBody()
+            <hr />
+
+        </div> <!-- /container -->
+    </div> <!-- /wrap /border -->
+    <!--FOOTER-->
+    <div id="footer">
+        <div class="container">
+            <p class="muted credit">This is a sticky footer</p>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+@*@*//header content starts
     <div id="wrapper">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container" id="header">
@@ -34,17 +92,17 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 
-    @*//Body content starts*@
+@*//Body content starts
     <div class="container body-content" id="content">
         @RenderBody()
         <hr />
 
-    </div>
+    </div>*@
 
-    @*//Footer content starts*@
-    @*<div class="footer">
+@*//Footer content starts*@
+@*<div class="footer">
         <footer>
             <p><a href="http://coolclimate.berkeley.edu/maps">Source: UC Berkeley CoolClimate Network, Average Annual Household Carbon Footprint (2013)</a></p>
             <p>&copy; @DateTime.Now.Year </p>
@@ -52,13 +110,13 @@
     </div>*@
 
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-    <script src="~/Scripts/google-maps-api.custom.js"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJCwd6U0hBRvjTn5WExOGjxrZcz5LdDGI&callback=initMap">
-    </script>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+<script src="~/Scripts/google-maps-api.custom.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJCwd6U0hBRvjTn5WExOGjxrZcz5LdDGI&callback=initMap">
+</script>
     </div>
 </body>
 </html>

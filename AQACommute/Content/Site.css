@@ -1,33 +1,4 @@
-﻿/*Setting the footer to the bottom of the page*/
-footer {
-    
-    position: absolute;
-    left: 0;
-    bottom: 0 0;
-    height: 100px;
-    width: 100%;
-    overflow: hidden;
-    text-align: center;
-}
-
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    margin: 0 0 100px; /* bottom = footer height */
-}
-
-/*Setting the header text to center*/
-#AQABanner {
-    text-align: center;
-}
-
-.header {
-    font-size: 80px;
-}
-
-
-
-/* Set padding to keep content from hitting the edges */
+﻿/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
