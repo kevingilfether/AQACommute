@@ -14,6 +14,7 @@ namespace AQACommute.Controllers
     public class CommutesController : Controller
     {
         public double travelDistance = 0;
+        public double co2Calculation = 0;
 
         //properties for JSON controller
         public string DistanceInfo { get; set; }
@@ -168,10 +169,22 @@ namespace AQACommute.Controllers
             travelDistance = double.Parse(tripDistance);
             //metric to imperial conversion
             travelDistance = travelDistance / 1609.34;
-            if (ModelState.IsValid)
-            {
+            //vehicle MPG Avg
+            var myMPG = from test in db.TransportMethods
+                        where test.TransportMethodID == test.TransportMethodID
+                        select test.AvgMPG;
 
+            //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
+            double mpgAvg = 0;
+
+            foreach (var mpg in myMPG)
+            {
+                mpgAvg = mpg;
             }
+
+            //C02Footprint calculation
+            if (travelDistance != 0)
+                co2Calculation = (travelDistance / mpgAvg) * 20;
             return new JsonResult()
             {
                 Data = JsonConvert.SerializeObject(travelDistance),

@@ -92,7 +92,7 @@ function getTripInfo() {
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
                         alert("Info POSTed");
-                        $("#parseDistanceResult").text(data)
+                        $("#parseDistanceResult").text(data + " lbs/CO2 for this trip.")
                     },
                     error: function (data) {
                         alert("Error POSTing view info to controller!");
