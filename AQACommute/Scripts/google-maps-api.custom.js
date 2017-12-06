@@ -1,4 +1,8 @@
-﻿function initMap() {
+﻿$(function () {
+    $(".hideMe").hide();
+})
+
+function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -98,8 +102,8 @@ function getTripInfo() {
                     success: function (data) {
                         alert("Info POSTed");
                         var returnValue = parseFloat(data);
-                        $("#co2FootprintInput").val()
-                        $("#co2FootprintDisplay").text(((Math.round(returnValue, 2)).toFixed(2)) + " lbs/CO2 for this trip.");
+                        $("#co2GeneratedLbs").val(returnValue);
+                        $("#co2Footprint").text(((Math.round(returnValue, 2)).toFixed(2)) + " lbs/CO2 for this trip.");
                     },
                     error: function (data) {
                         alert("Error POSTing view info to controller!");
