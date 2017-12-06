@@ -52,7 +52,7 @@ namespace AQACommute.Controllers
             //Like "2004 Toyota Sienna V6 Minivan"
             var carString = db.TransportMethods
                 .OrderBy(q => q.Year)
-                .ToDictionary(q => q.Year, q => q.Year + " " + q.Make + " " + q.Model + " " + q.TransportClass);
+                .ToDictionary(q => q.TransportMethodID, q => q.Year + " " + q.Make + " " + q.Model + " " + q.TransportClass);
             ViewBag.TransportMethodID = new SelectList(carString, "Key", "Value");
             return View();
         }
