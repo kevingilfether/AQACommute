@@ -61,14 +61,11 @@ namespace AQACommute.Controllers
             if (ModelState.IsValid)
             {
                 //vehicle MPG Avg
-
-
                 var myMPG = from test in db.TransportMethods
                             where test.TransportMethodID == test.TransportMethodID
                             select test.AvgMPG;
 
                 //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
-
                 double mpgAvg = 0;
 
                 foreach (var mpg in myMPG)
@@ -77,7 +74,6 @@ namespace AQACommute.Controllers
                 }
 
                 //C02Footprint calculation
-
                 if (travelDistance != 0)
                     commute.CO2GeneratedLbs = (travelDistance / mpgAvg) * 20;
 
@@ -165,13 +161,15 @@ namespace AQACommute.Controllers
             string tripDistance = distance.DistanceInfo;
             //string tripDuration = distance.DurationInfo;
             travelDistance = double.Parse(tripDistance);
+            //metric to imperial conversion
+            travelDistance = travelDistance / 1609.34;
             if (ModelState.IsValid)
             {
 
             }
             return new JsonResult()
             {
-                Data = JsonConvert.SerializeObject(tripDistance),
+                Data = JsonConvert.SerializeObject(travelDistance),
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
