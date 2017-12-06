@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.CO2GeneratedLbs)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TransportMethod.TransportMode)
+            @Html.DisplayNameFor(model => model.TransportMethod.TransportClass)
         </th>
         <th></th>
     </tr>
@@ -50,7 +50,11 @@
             @Html.DisplayFor(modelItem => item.CO2GeneratedLbs)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TransportMethod.TransportMode)
+            @Html.DisplayFor(modelItem => item.TransportMethod.Year)
+            @Html.DisplayFor(modelItem => item.TransportMethod.Make)
+            @Html.DisplayFor(modelItem => item.TransportMethod.Model)
+            @Html.DisplayFor(modelItem => item.TransportMethod.Option)
+            @Html.DisplayFor(modelItem => item.TransportMethod.TransportClass)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CommuteID }) |
