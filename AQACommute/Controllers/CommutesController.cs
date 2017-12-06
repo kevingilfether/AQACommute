@@ -47,7 +47,12 @@ namespace AQACommute.Controllers
         // GET: Commutes/Create
         public ActionResult Create()
         {
-            ViewBag.TransportMethodID = new SelectList(db.TransportMethods, "TransportMethodID", "TransportMode");
+            //Getting the dropdown menu to show all the vehicles by year, make, model, option, class
+            //Like "2004 Toyota Sienna V6 Minivan"
+            var carString = db.TransportMethods
+                .OrderBy(q => q.Year)
+                .ToDictionary(q => q.Year, q => q.Year + " " + q.Make + " " + q.Model + " " + q.TransportClass);
+            ViewBag.TransportMethodID = new SelectList(carString, "Key", "Value");
             return View();
         }
 
