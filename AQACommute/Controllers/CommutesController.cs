@@ -38,6 +38,19 @@ namespace AQACommute.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Commute commute = db.Commutes.Find(id);
+
+            var commutes = db.Commutes.Include(c => c.TransportMethod);
+
+            //personal comparisons to ...
+
+            double globalAvg = (commute.CO2GeneratedLbs / 153) * 100;
+            double cuyahogaAvg = (commute.CO2GeneratedLbs / 274) * 100;
+            double twenty30Avg = (commute.CO2GeneratedLbs / 41.3) * 100;
+
+            ViewBag.Global = globalAvg;
+            ViewBag.CuyahogaCounty = cuyahogaAvg;
+            ViewBag.Twenty30Goal = twenty30Avg;
+
             if (commute == null)
             {
                 return HttpNotFound();
@@ -194,3 +207,4 @@ namespace AQACommute.Controllers
 
     }
 }
+
