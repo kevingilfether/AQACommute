@@ -7,11 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AQACommute.Models;
+using Newtonsoft.Json;
 
 namespace AQACommute.Controllers
 {
     public class CommutesController : Controller
     {
+        public double travelDistance = 0;
+
+        //properties for JSON controller
+        public string DistanceInfo { get; set; }
+        public string DurationInfo { get; set; }
+        public double CO2Footprint { get; set; }
+
         private AQACommuteDBEntities db = new AQACommuteDBEntities();
 
         // GET: Commutes
@@ -63,21 +71,15 @@ namespace AQACommute.Controllers
 
                 double mpgAvg = 0;
 
-                foreach(var mpg in myMPG)
+                foreach (var mpg in myMPG)
                 {
                     mpgAvg = mpg;
                 }
 
                 //C02Footprint calculation
 
-                double d2 = 0;
-
-                if (commute.TotalMiles.HasValue)
-                { d2 = (double)commute.TotalMiles; }
-
-                commute.CO2GeneratedLbs = (d2 / mpgAvg) * 20;
-
-                //commute.CO2GeneratedLbs = (100 / mpgAvg) * 20;
+                if (travelDistance != 0)
+                    commute.CO2GeneratedLbs = (travelDistance / mpgAvg) * 20;
 
                 db.Commutes.Add(commute);
                 db.SaveChanges();
@@ -87,6 +89,7 @@ namespace AQACommute.Controllers
             ViewBag.TransportMethodID = new SelectList(db.TransportMethods, "TransportMethodID", "TransportMode", commute.TransportMethodID);
             return View(commute);
         }
+
 
         // GET: Commutes/Edit/5
         public ActionResult Edit(int? id)
@@ -155,5 +158,23 @@ namespace AQACommute.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //Map Function
+        public JsonResult MapInfo(CommutesController distance)
+        {
+            string tripDistance = distance.DistanceInfo;
+            //string tripDuration = distance.DurationInfo;
+            travelDistance = double.Parse(tripDistance);
+            if (ModelState.IsValid)
+            {
+
+            }
+            return new JsonResult()
+            {
+                Data = JsonConvert.SerializeObject(tripDistance),
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
+
     }
 }

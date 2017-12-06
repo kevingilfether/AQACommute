@@ -9,10 +9,12 @@
 
     var onClickHandler = function () {
         calculateAndDisplayRoute(directionsService, directionsDisplay);
-        getTotalDistance();
+        getTripInfo();
 
     };
-    document.getElementById('plotPoints').addEventListener('click', onClickHandler);
+    $(function () {
+        $('#plotPoints').on('click', onClickHandler);
+    });
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
@@ -30,7 +32,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 }
 
 
-function getTotalDistance() {
+function getTripInfo() {
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
   {
@@ -68,13 +70,37 @@ function getTotalDistance() {
                 var results = response.rows[i].elements;
                 for (var j = 0; j < results.length; j++) {
                     var element = results[j];
-                    var distance = element.distance.text;
-                    var duration = element.duration.text;
+                    var distance = element.distance.value;//in meters
+                    var duration = element.duration.value;//in seconds
                     var from = origins[i];
                     var to = destinations[j];
                 }
             }
-            document.getElementById("parseDistanceResult").innerHTML = distance;
-        }
+            $(function () {
+                var mapData = {
+                    //set properties found in controller	
+                    DistanceInfo: distance
+                };
+
+                alert(mapData);
+                $.ajax({
+                    //makes it so page doesn’t wait to load
+                    async: true,
+                    method: "POST",
+                    url: "/Commutes/MapInfo",
+                    data: JSON.stringify(mapData),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        alert("Info POSTed");
+                        $("#parseDistanceResult").text(data)
+                    },
+                    error: function (data) {
+                        alert("Error POSTing view info to controller!");
+                        alert(data);
+                    }
+                });
+
+            });
+        };
     }
 }
