@@ -77,9 +77,14 @@ function getTripInfo() {
                 }
             }
             $(function () {
+                $("#startInput").text(origins);
+                $("#endInput").text(destinations);
+                $("#totalMiles").text((parseFloat(distance) / 1609.34));
+                $("#commuteTime").text((parseInt(duration) / 60));
                 var mapData = {
                     //set properties found in controller	
-                    DistanceInfo: distance
+                    DistanceInfo: distance,
+                    //DurationInfo: duration
                 };
 
                 alert(mapData);
@@ -92,7 +97,7 @@ function getTripInfo() {
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
                         alert("Info POSTed");
-                        $("#parseDistanceResult").text(data + " lbs/CO2 for this trip.")
+                        $("#co2Footprint").text(Math.round(parseFloat(data), 2) + " lbs/CO2 for this trip.");
                     },
                     error: function (data) {
                         alert("Error POSTing view info to controller!");

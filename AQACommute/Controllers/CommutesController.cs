@@ -14,6 +14,7 @@ namespace AQACommute.Controllers
     public class CommutesController : Controller
     {
         public double travelDistance = 0;
+        public int travelDuration = 0;
         public double co2Calculation = 0;
 
         //properties for JSON controller
@@ -164,11 +165,19 @@ namespace AQACommute.Controllers
         //Map Function
         public JsonResult MapInfo(CommutesController distance)
         {
+            string errorHandler = "Error with input value somewhere.";
             string tripDistance = distance.DistanceInfo;
-            //string tripDuration = distance.DurationInfo;
-            travelDistance = double.Parse(tripDistance);
+            string tripDuration = distance.DurationInfo;
+            if (tripDistance != null)
+                travelDistance = double.Parse(tripDistance);
+            if (tripDuration != null)
+                travelDuration = int.Parse(tripDuration);
             //metric to imperial conversion
             travelDistance = travelDistance / 1609.34;
+
+            //seconds to minutes conversion
+            travelDuration = travelDuration / 60;
+
             //vehicle MPG Avg
             var myMPG = from test in db.TransportMethods
                         where test.TransportMethodID == test.TransportMethodID
@@ -184,12 +193,23 @@ namespace AQACommute.Controllers
 
             //C02Footprint calculation
             if (travelDistance != 0)
-                co2Calculation = (travelDistance / mpgAvg) * 20;
-            return new JsonResult()
             {
-                Data = JsonConvert.SerializeObject(travelDistance),
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet
-            };
+                co2Calculation = (travelDistance / mpgAvg) * 20;
+                return new JsonResult()
+                {
+                    Data = JsonConvert.SerializeObject(co2Calculation),
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+            else
+            {
+                return new JsonResult()
+                {
+                    Data = JsonConvert.SerializeObject(errorHandler),
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+            
         }
 
     }
