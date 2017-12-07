@@ -40,7 +40,7 @@
                 <ul class="nav navbar-nav" style="float: right">
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Commutes", "Index", "Commutes")</li>
+                    <li>@Html.ActionLink("Commutes", "Create", "Commutes")</li>
                     <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
                     @*<li>@Html.ActionLink("Resources", "Index", "Resources")</li>
                         <li>@Html.ActionLink("Our Team", "Team", "Resources")</li>*@
@@ -68,7 +68,7 @@
                     </h3>
 
                     <!-- Nice place to describe your site in a sentence or two -->
-                    <p><a href="/download/" class="btn btn-default btn-lg" id="btn1">Continue</a>
+                    <input type="button" class="btn btn-default btn-lg" value="Continue" id="btn1" onclick="location.href='@Url.Action("Create", "Commutes")'" />
 
                 </div> <!-- /col -->
             </div> <!-- /row -->
