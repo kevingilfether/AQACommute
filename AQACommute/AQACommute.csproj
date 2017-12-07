@@ -253,7 +253,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\forest-2856865_1920.jpg" />
-    <Content Include="Content\TemplateStyling.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -383,11 +382,7 @@
     <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Home\PvPTransit.cshtml" />
-=======
-    <Content Include="Views\Resources\ResourcesPage.cshtml" />
->>>>>>> Sprint3NEW
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
