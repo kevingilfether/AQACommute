@@ -13,6 +13,11 @@ namespace AQACommute.Controllers
             return View();
         }
 
+        public ActionResult LandingPage()
+        {
+            return View();
+        }
+
         public ActionResult AboutUs()
         {
             ViewBag.Message = "Your application description page.";
