@@ -61,6 +61,28 @@
             @Html.DisplayFor(model => model.TransportMethod.Option)
             @Html.DisplayFor(model => model.TransportMethod.TransportClass)
         </dd>
+        <!--Global Avg.-->
+        <dt>
+            Percentage of commute compared to daily global average:
+        </dt>
+        <dd>
+            @ViewBag.Global%
+        </dd>
+        <!--Cuyahoga County Avg.-->
+        <dt>
+            Percentage of commute compared to daily Cuyahoga County average:
+        </dt>
+        <dd>
+            @ViewBag.CuyahogaCounty%
+        </dd>
+        <!--2030 Goal-->
+        <dt>
+            Percentage of commute compared to 2030 Paris Climate Agreement Goal:
+        </dt>
+
+        <dd>
+            @ViewBag.Twenty30Goal%
+        </dd>
 
     </dl>
 </div>
