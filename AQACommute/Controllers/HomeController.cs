@@ -33,5 +33,10 @@ namespace AQACommute.Controllers
 
             return View();
         }
+
+        public ActionResult PvPTransit()
+        {
+            return View();
+        }
     }
 }
