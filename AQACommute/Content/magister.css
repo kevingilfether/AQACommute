@@ -1,10 +1,31 @@
+.landingBox {
+    border-style: solid;
+    border: none; 
+    background-color: rgba(74, 124, 44, 0.50)
+}
+
+.text-center.landingBox {
+    padding-top:20px;
+}
+
+#btn1 {
+    margin-right: 100px;
+    margin-bottom: 25px;
+}
+
+#btn2 {
+    margin-left: 100px;
+    margin-bottom: 25px;
+}
+
+/*Template's CSS Begins*/
 html {
-	background:#505D6E url(../Content/Images/forest-2856865_1920.jpg) no-repeat center center fixed; 
-	min-height:100%;
-	-webkit-background-size: cover;
-	   -moz-background-size: cover;
-	     -o-background-size: cover;
-	        background-size: cover;
+    
+    min-height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 body {
@@ -18,6 +39,7 @@ body {
 	color:#fff;
 	color:rgba(255,255,255,.8); 
 	font-weight: normal;
+    background: #505D6E url(/Content/Images/forest-2856865_1920.jpg) no-repeat center center fixed;
 }
 
 
@@ -110,13 +132,13 @@ body {
 	width: 100%; 
 	overflow:auto;
 	height:100%;
-	padding-top:100px;
-	padding-bottom:50px; 
+	padding-top:15px;
+	padding-bottom:15px; 
 	display:none;
 	top:0;
 } 
 @media (min-width: 768px) {
-	.section { padding-top:160px;}
+	.section { padding-top:45px;}
 }
 
 /* Show one of sections */
