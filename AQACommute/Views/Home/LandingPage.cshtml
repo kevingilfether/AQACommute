@@ -10,16 +10,70 @@
     <meta name="viewport" content="width=device-width" />
     <title>LandingPage</title>
     <link href="~/Content/magister.css" rel="stylesheet" />
-    <script src="~/Content/magister.js"></script>
-    <script src="~/Content/modernizr.custom.72241.js"></script>
+    <!--Bootstrap-->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--Fonts-->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
-
-
 </head>
 <body>
-    <div> 
-    </div>
+    <!--NAVBAR-->
+    <nav class="navbar  navbar-static-top navbar-inverse" id="navvy">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"><li class="active"><a href="#">LOGO</a></li></ul>
+                <ul class="nav navbar-nav" style="float: right">
+
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Commutes", "Index", "Commutes")</li>
+                    <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                    @*<li>@Html.ActionLink("Resources", "Index", "Resources")</li>
+                        <li>@Html.ActionLink("Our Team", "Team", "Resources")</li>*@
+                    <li><a href="#">The Team</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main (Home) section -->
+    <section class="section" id="head">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center landingBox">
+
+                    <!-- Site Title, your name, HELLO msg, etc. -->
+                    <h1 class="title">AQA Commute</h1>
+                    <h2 class="subtitle">Your Personal Air Quality Analyst</h2>
+
+                    <!-- Short introductory (optional) -->
+                    <h3 class="tagline">
+                        We track your commute's air quality impact so the hard work is done for you.<br />
+                        Your Air Quality Analyst takes your awareness that the environment is in trouble<br />
+                        and helps you take action to minimize your affect.
+                    </h3>
+
+                    <!-- Nice place to describe your site in a sentence or two -->
+                    <p><a href="/download/" class="btn btn-default btn-lg" id="btn1">Login or Register</a><a href="/download/" class="btn btn-default btn-lg" id="btn2">Continue as Guest</a></p>
+
+                </div> <!-- /col -->
+            </div> <!-- /row -->
+
+        </div>
+    </section>
+    <!--^^^^^IT WORKS NO TOUCHIE-->
+
+    <!--Scripts, local and remote-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="~/Content/magister.js"></script>
+    <script src="~/Content/modernizr.custom.72241.js"></script>
 </body>
 </html>
