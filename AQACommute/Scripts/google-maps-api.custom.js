@@ -1,4 +1,8 @@
-﻿function initMap() {
+﻿$(function () {
+    $(".hideMe").hide();
+})
+
+function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -77,9 +81,14 @@ function getTripInfo() {
                 }
             }
             $(function () {
+                $("#startInput").val(origins);
+                $("#endInput").val(destinations);
+                $("#totalMiles").val(((parseFloat(distance)) / 1609.34));
+                $("#commuteTime").val((parseInt(duration) / 60));
                 var mapData = {
                     //set properties found in controller	
-                    DistanceInfo: distance
+                    DistanceInfo: distance,
+                    //DurationInfo: duration
                 };
 
                 alert(mapData);
@@ -92,7 +101,9 @@ function getTripInfo() {
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
                         alert("Info POSTed");
-                        $("#parseDistanceResult").text(data + " lbs/CO2 for this trip.")
+                        var returnValue = parseFloat(data);
+                        $("#co2GeneratedLbs").val(returnValue);
+                        $("#co2Footprint").text(((Math.round(returnValue, 2)).toFixed(2)) + " lbs/CO2 for this trip.");
                     },
                     error: function (data) {
                         alert("Error POSTing view info to controller!");

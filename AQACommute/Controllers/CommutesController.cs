@@ -14,6 +14,7 @@ namespace AQACommute.Controllers
     public class CommutesController : Controller
     {
         public double travelDistance = 0;
+        public int travelDuration = 0;
         public double co2Calculation = 0;
 
         //properties for JSON controller
@@ -38,6 +39,24 @@ namespace AQACommute.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Commute commute = db.Commutes.Find(id);
+
+            var commutes = db.Commutes.Include(c => c.TransportMethod);
+
+            //personal comparisons to ...
+            //*100 to make percentages easier
+
+            double globalAvg = (commute.CO2GeneratedLbs / 51.28) * 100;
+            double cuyahogaAvg = (commute.CO2GeneratedLbs / 73.98) * 100;
+            double twenty30Avg = (commute.CO2GeneratedLbs / 41.3) * 100;
+
+            globalAvg = Math.Round(globalAvg, 2);
+            cuyahogaAvg = Math.Round(cuyahogaAvg, 2);
+            twenty30Avg = Math.Round(twenty30Avg, 2);
+
+            ViewBag.Global = globalAvg;
+            ViewBag.CuyahogaCounty = cuyahogaAvg;
+            ViewBag.Twenty30Goal = twenty30Avg;
+
             if (commute == null)
             {
                 return HttpNotFound();
@@ -164,11 +183,19 @@ namespace AQACommute.Controllers
         //Map Function
         public JsonResult MapInfo(CommutesController distance)
         {
+            string errorHandler = "Error with input value somewhere.";
             string tripDistance = distance.DistanceInfo;
-            //string tripDuration = distance.DurationInfo;
-            travelDistance = double.Parse(tripDistance);
+            string tripDuration = distance.DurationInfo;
+            if (tripDistance != null)
+                travelDistance = double.Parse(tripDistance);
+            if (tripDuration != null)
+                travelDuration = int.Parse(tripDuration);
             //metric to imperial conversion
             travelDistance = travelDistance / 1609.34;
+
+            //seconds to minutes conversion
+            travelDuration = travelDuration / 60;
+
             //vehicle MPG Avg
             var myMPG = from test in db.TransportMethods
                         where test.TransportMethodID == test.TransportMethodID
@@ -184,13 +211,25 @@ namespace AQACommute.Controllers
 
             //C02Footprint calculation
             if (travelDistance != 0)
-                co2Calculation = (travelDistance / mpgAvg) * 20;
-            return new JsonResult()
             {
-                Data = JsonConvert.SerializeObject(travelDistance),
-                JsonRequestBehavior = JsonRequestBehavior.AllowGet
-            };
+                co2Calculation = (travelDistance / mpgAvg) * 20;
+                return new JsonResult()
+                {
+                    Data = JsonConvert.SerializeObject(co2Calculation),
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+            else
+            {
+                return new JsonResult()
+                {
+                    Data = JsonConvert.SerializeObject(errorHandler),
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+            
         }
 
     }
 }
+
