@@ -1,0 +1,76 @@
+﻿/****************************************************************/
+/*The content of this stylesheet is for the template in use     */
+/*Please don't change without checking with Ali! Thanks!        */
+/****************************************************************/
+
+
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+    margin-top: 0px;
+}
+
+.border {
+    
+   background-color: #bdeedb;
+    margin: 75px 150px 75px 150px;
+}
+
+.content {
+    text-align: center;
+    width: auto;
+}
+
+#navvy {
+    margin-bottom: 0px;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    /*margin: 0 auto -60px;   <-- didn't need; kept box from staying where it needed to be*/
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+    height: 60px;
+}
+
+#footer {
+    background-color: #bdeedb;
+    text-align: center;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+footer {
+    position: absolute;
+    /*left: 0;
+    bottom: 0 0;*/
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.jumbotron {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.muted {
+    margin-top: 20px;
+}
