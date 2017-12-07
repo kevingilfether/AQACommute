@@ -7,16 +7,23 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>LandingPage</title>
-    <link href="~/Content/magister.css" rel="stylesheet" />
-    <!--Bootstrap-->
+    
+    <title>AQA Commute</title>
+
+    <link rel="shortcut icon" href="#">
+
+    <!-- Bootstrap itself -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!--Fonts-->
+
+    <!-- Custom styles -->
+    <link href="~/Content/magister.css" rel="stylesheet" />
+
+    <!-- Fonts -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+
 </head>
-<body>
+<body class="text-shadows">
     <!--NAVBAR-->
     <nav class="navbar  navbar-static-top navbar-inverse" id="navvy">
         <div class="container">
@@ -54,7 +61,7 @@
                     <h2 class="subtitle">Your Personal Air Quality Analyst</h2>
 
                     <!-- Short introductory (optional) -->
-                    <h3 class="tagline">
+                    <h3 class="tagline" id="taglineOverwrite">
                         We track your commute's air quality impact so the hard work is done for you.<br />
                         Your Air Quality Analyst takes your awareness that the environment is in trouble<br />
                         and helps you take action to minimize your affect.

@@ -355,7 +355,7 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 .theme-invert .title,
 .theme-invert .subtitle,
 .theme-invert .tagline { 
-	color:#222222; 
+	color: white !important; 
 }
 
 .theme-invert .btn-default {
