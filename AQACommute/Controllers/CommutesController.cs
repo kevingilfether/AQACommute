@@ -44,8 +44,8 @@ namespace AQACommute.Controllers
             //personal comparisons to ...
             //*100 to make percentages easier
 
-            double globalAvg = (commute.CO2GeneratedLbs / 153) * 100;
-            double cuyahogaAvg = (commute.CO2GeneratedLbs / 274) * 100;
+            double globalAvg = (commute.CO2GeneratedLbs / 51.28) * 100;
+            double cuyahogaAvg = (commute.CO2GeneratedLbs / 73.98) * 100;
             double twenty30Avg = (commute.CO2GeneratedLbs / 41.3) * 100;
 
             globalAvg = Math.Round(globalAvg, 2);
