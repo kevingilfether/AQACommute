@@ -50,10 +50,10 @@ namespace AQACommute.Controllers
         {
             //Getting the dropdown menu to show all the vehicles by year, make, model, option, class
             //Like "2004 Toyota Sienna V6 Minivan"
-            var carString = db.TransportMethods
+            var carStrings = db.TransportMethods
                 .OrderBy(q => q.Year)
                 .ToDictionary(q => q.TransportMethodID, q => q.Year + " " + q.Make + " " + q.Model + " " + q.TransportClass);
-            ViewBag.TransportMethodID = new SelectList(carString, "Key", "Value");
+            ViewBag.TransportMethodID = new SelectList(carStrings, "Key", "Value");
             return View();
         }
 
@@ -105,7 +105,10 @@ namespace AQACommute.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TransportMethodID = new SelectList(db.TransportMethods, "TransportMethodID", "TransportMode", commute.TransportMethodID);
+            var carStrings = db.TransportMethods
+                .OrderBy(q => q.Year)
+                .ToDictionary(q => q.TransportMethodID, q => q.Year + " " + q.Make + " " + q.Model + " " + q.TransportClass);
+            ViewBag.TransportMethodID = new SelectList(carStrings, "Key", "Value");
             return View(commute);
         }
 
