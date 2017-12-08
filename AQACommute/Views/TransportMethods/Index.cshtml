@@ -11,24 +11,24 @@
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.TransportMode)
-        </th>
-        <th>
+        </th>*@
+        @*<th>
             @Html.DisplayNameFor(model => model.TransportClass)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.AvgMPG)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.CityMPG)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.HwyMPG)
-        </th>
-        <th>
+        </th>*@
+        @*<th>
             @Html.DisplayNameFor(model => model.CO2Lbs)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Make)
         </th>
@@ -41,7 +41,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Options)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Make1.MakeName)
         </th>
         <th>
@@ -52,30 +52,30 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Year1.Year1)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.TransportMode)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.DisplayFor(modelItem => item.TransportClass)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.AvgMPG)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.CityMPG)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.HwyMPG)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.DisplayFor(modelItem => item.CO2Lbs)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Make)
         </td>
@@ -88,7 +88,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Options)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Make1.MakeName)
         </td>
         <td>
@@ -99,7 +99,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Year1.Year1)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TransportMethodID }) |
             @Html.ActionLink("Details", "Details", new { id=item.TransportMethodID }) |
