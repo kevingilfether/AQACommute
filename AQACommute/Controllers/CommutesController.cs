@@ -218,7 +218,7 @@ namespace AQACommute.Controllers
             }
 
             //C02Footprint calculation
-            co2Calculation = (travelDistance / mpg) * 20;
+            co2Calculation = (travelDistance / mpgAvg) * 20;
             return new JsonResult()
             {
                 Data = JsonConvert.SerializeObject(co2Calculation),
