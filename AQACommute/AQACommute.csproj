@@ -386,7 +386,7 @@
     <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
-    <Content Include="Views\Resources\ResourcesPage.cshtml" />
+    <Content Include="Views\Home\ResourcesPage.cshtml" />
     <Content Include="Views\Home\LandingPage.cshtml" />
     <Content Include="Views\Home\PvPTransit.cshtml" />
   </ItemGroup>

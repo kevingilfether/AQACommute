@@ -43,5 +43,10 @@ namespace AQACommute.Controllers
         {
             return View();
         }
+
+        public ActionResult ResourcesPage()
+        {
+            return View();
+        }
     }
 }
