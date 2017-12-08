@@ -11,7 +11,8 @@ namespace AQACommute.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Commute
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,15 +22,28 @@ namespace AQACommute.Models
         }
     
         public int CommuteID { get; set; }
+
+        [Display(Name = "Commute Time")]
         public string CommuteTime { get; set; }
+
+        [Display(Name = "Start Point")]
         public string StartPoint { get; set; }
+
+        [Display(Name = "End Point")]
         public string EndPoint { get; set; }
+
+        [Display(Name = "Total Miles")]
         public Nullable<double> TotalMiles { get; set; }
+
+        [Display(Name = "CO2 Generated Lbs")]
         public double CO2GeneratedLbs { get; set; }
+
+        [Display(Name = "Transport Method")]
         public int TransportMethodID { get; set; }
-    
         public virtual TransportMethod TransportMethod { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        [Display(Name = "Commute Locations")]
         public virtual ICollection<CommuteLocation> CommuteLocations { get; set; }
     }
 }
