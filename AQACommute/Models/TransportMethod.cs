@@ -11,7 +11,8 @@ namespace AQACommute.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TransportMethod
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,13 +22,25 @@ namespace AQACommute.Models
             this.UTMs = new HashSet<UTM>();
         }
     
+        [Display(Name = "Transport Method")]
         public int TransportMethodID { get; set; }
         public string TransportMode { get; set; }
+
+        [Display(Name = "Transport Class")]
         public string TransportClass { get; set; }
+
+        [Display(Name = "AVG MPG")]
         public double AvgMPG { get; set; }
+
+        [Display(Name = "City MPG")]
         public Nullable<double> CityMPG { get; set; }
+
+        [Display(Name = "HWY MPG")]
         public Nullable<double> HwyMPG { get; set; }
+
+        [Display(Name = "CO2 Lbs")]
         public Nullable<double> CO2Lbs { get; set; }
+
         public Nullable<int> MakeID { get; set; }
         public Nullable<int> ModelID { get; set; }
         public Nullable<int> YearID { get; set; }
