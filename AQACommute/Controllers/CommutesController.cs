@@ -13,6 +13,8 @@ namespace AQACommute.Controllers
 {
     public class CommutesController : Controller
     {
+        public double mpg = 0;
+
         public double travelDistance = 0;
         public int travelDuration = 0;
         public double co2Calculation = 0;
@@ -87,15 +89,15 @@ namespace AQACommute.Controllers
             {
                 //vehicle MPG Avg
                 var myMPG = from test in db.TransportMethods
-                            where test.TransportMethodID == test.TransportMethodID
+                            where test.TransportMethodID == commute.TransportMethodID
                             select test.AvgMPG;
 
                 //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
                 double mpgAvg = 0;
 
-                foreach (var mpg in myMPG)
+                foreach (var m in myMPG)
                 {
-                    mpgAvg = mpg;
+                    mpgAvg = m;
                 }
 
                 //C02Footprint calculation
@@ -106,8 +108,11 @@ namespace AQACommute.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var carStrings = db.TransportMethods
+                .OrderBy(q => q.Year)
+                .ToDictionary(q => q.TransportMethodID, q => q.Year + " " + q.Make + " " + q.Model + " " + q.TransportClass);
+            ViewBag.TransportMethodID = new SelectList(carStrings, "Key", "Value");
 
-            ViewBag.TransportMethodID = new SelectList(db.TransportMethods, "TransportMethodID", "TransportMode", commute.TransportMethodID);
             return View(commute);
         }
 
@@ -200,9 +205,9 @@ namespace AQACommute.Controllers
             travelDuration = travelDuration / 60;
 
             //vehicle MPG Avg
-            var myMPG = from test in db.TransportMethods
-                        where test.TransportMethodID == test.TransportMethodID
-                        select test.AvgMPG;
+            var myMPG = from car in db.TransportMethods
+                        where car.TransportMethodID == car.TransportMethodID
+                        select car.AvgMPG;
 
             //need to set test.TransportMethodID == identity column of TransportMethod or transport.TransportMethodID if possible.
             double mpgAvg = 0;
@@ -213,26 +218,13 @@ namespace AQACommute.Controllers
             }
 
             //C02Footprint calculation
-            if (travelDistance != 0)
+            co2Calculation = (travelDistance / mpgAvg) * 20;
+            return new JsonResult()
             {
-                co2Calculation = (travelDistance / mpgAvg) * 20;
-                return new JsonResult()
-                {
-                    Data = JsonConvert.SerializeObject(co2Calculation),
-                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
-                };
-            }
-            else
-            {
-                return new JsonResult()
-                {
-                    Data = JsonConvert.SerializeObject(errorHandler),
-                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
-                };
-            }
-            
+                Data = JsonConvert.SerializeObject(co2Calculation),
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
         }
-
     }
-}
 
+}
