@@ -6,7 +6,8 @@
     <title>AQA - Air Quality Analysis</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Content/TemplateStyling.css" rel="stylesheet" />
+    @*<link href="~/Content/TemplateStyling.css" rel="stylesheet" />*@
+    <link href="~/Content/magister.css" rel="stylesheet" />
 
 </head>
 <body class="textcolor">
@@ -27,7 +28,7 @@
                 <ul class="nav navbar-nav" style="float: right">
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Commutes", "Index", "Commutes")</li>
+                    <li>@Html.ActionLink("Your Impact", "Create", "Commutes")</li>
                     <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
                     @*<li>@Html.ActionLink("Resources", "Index", "Resources")</li>*@
                     <li>@Html.ActionLink("Our Team", "AboutUs", "Home")</li>
