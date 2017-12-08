@@ -2,23 +2,25 @@
     $(".hideMe").hide();
 })
 
-function initMap() {
-    var directionsService = new google.maps.DirectionsService;
-    var directionsDisplay = new google.maps.DirectionsRenderer;
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 7,
-        center: { lat: 41.4993, lng: -81.6944 }
-    });
-    directionsDisplay.setMap(map);
+if (document.getElementById("map")) {
+    function initMap() {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 7,
+            center: { lat: 41.4993, lng: -81.6944 }
+        });
+        directionsDisplay.setMap(map);
 
-    var onClickHandler = function () {
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
-        getTripInfo();
+        var onClickHandler = function () {
+            calculateAndDisplayRoute(directionsService, directionsDisplay);
+            getTripInfo();
 
-    };
-    $(function () {
-        $('#plotPoints').on('click', onClickHandler);
-    });
+        };
+        $(function () {
+            $('#plotPoints').on('click', onClickHandler);
+        });
+    }
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
