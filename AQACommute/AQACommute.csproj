@@ -253,10 +253,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\forest-2856865_1920.jpg" />
+<<<<<<< HEAD
     <Content Include="Content\magister.css" />
     <Content Include="Content\magister.js" />
     <Content Include="Content\modernizr.custom.72241.js" />
     <Content Include="Content\TemplateStyling.css" />
+=======
+>>>>>>> 41d11407a894a7a4e1cb0985f1adfd2b5393dae3
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -386,8 +389,12 @@
     <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Resources\ResourcesPage.cshtml" />
     <Content Include="Views\Home\LandingPage.cshtml" />
+=======
+    <Content Include="Views\Home\PvPTransit.cshtml" />
+>>>>>>> 41d11407a894a7a4e1cb0985f1adfd2b5393dae3
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
