@@ -7,8 +7,9 @@
 html,
 body {
     height: 100%;
-    /* The html and body elements cannot have any padding or margin. */
-    margin-top: 0px;
+    padding:0; 
+    margin:0;
+    height:100%;
 }
 
 .border {
@@ -56,10 +57,11 @@ body {
     }
 }
 
-footer {
-    position: absolute;
-    /*left: 0;
-    bottom: 0 0;*/
+footer !important{
+    position: sticky;
+    left: 0;
+    right: 0;
+    bottom: 0 0;
     height: 100px;
     width: 100%;
     overflow: hidden;
@@ -69,6 +71,8 @@ footer {
 .jumbotron {
     text-align: center;
     margin-bottom: 0px;
+    background-size: cover;
+    background-image: url('Images/forest-2856865_1920 - Copy.jpg');
 }
 
 .muted {

@@ -20,8 +20,6 @@ namespace AQACommute.Controllers
 
         public ActionResult AboutUs()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
