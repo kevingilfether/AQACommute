@@ -235,6 +235,7 @@
     <Compile Include="Models\Option.cs">
       <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransportCommuteViewModel.cs" />
     <Compile Include="Models\TransportMethod.cs">
       <DependentUpon>AQACommuteDB.tt</DependentUpon>
     </Compile>
