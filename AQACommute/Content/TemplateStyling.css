@@ -13,7 +13,9 @@ body {
     background-color: rgba(78, 127, 106, 1);
 
 }
-
+#page_header {
+    background-size: 32px;
+}
 .border {
     
    background-color: #4E7F6A;
