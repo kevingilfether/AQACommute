@@ -44,10 +44,10 @@
             @Html.DisplayFor(modelItem => item.EndPoint)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TotalMiles)
+            @Html.DisplayFor(modelItem => item.TotalMiles, "Double")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CO2GeneratedLbs)
+            @Html.DisplayFor(modelItem => item.CO2GeneratedLbs, "Double")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TransportMethod.Year)

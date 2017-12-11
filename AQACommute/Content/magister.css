@@ -210,7 +210,7 @@ body {
 /********************************************************/
 /*                      Typography                      */
 /********************************************************/
-a { color:#fff; text-decoration: none; }
+a { color: lightgreen; text-decoration: none; }
 a:hover, a:active { color:#fff; text-decoration: underline; }
 .lead { 
 	font-weight:normal;

@@ -83,10 +83,11 @@ function getTripInfo() {
                 }
             }
             $(function () {
+                //Puts values in hidden fields on the Commutes/Create View
                 $("#startInput").val(origins);
                 $("#endInput").val(destinations);
                 $("#totalMiles").val(((parseFloat(distance)) / 1609.34));
-                $("#commuteTime").val((parseInt(duration) / 60));
+                $("#commuteTime").val(parseInt(duration/60));
                 var mapData = {
                     //set properties found in controller	
                     DistanceInfo: distance,
