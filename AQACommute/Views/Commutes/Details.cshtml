@@ -8,12 +8,12 @@
 
 <div class="row body-content">
     <div class="col-sm-6 col-md-8">        
-        <h2>@Html.DisplayFor(model => model.StartPoint)<span class="glyphicon glyphicon-arrow-right"></span> @Html.DisplayFor(model => model.EndPoint)</h2>
-        <h3>Commute Length <span class="glyphicon glyphicon-road"></span> : @Html.DisplayFor(model => model.TotalMiles) Miles</h3>
-        <h3>Emissions: @Html.DisplayFor(model => model.CO2GeneratedLbs, "NumFormat") Lbs CO2 Equivalent</h3>
-        <h3>Percentage of commute compared to daily global average <span class="glyphicon glyphicon-globe"></span>: @ViewBag.Global%</h3>
-        <h3>Percentage of commute compared to daily Cuyahoga County average: @ViewBag.CuyahogaCounty%</h3>
-        <h3>Percentage of commute compared to 2030 Paris Climate Agreement Goal: @ViewBag.Twenty30Goal%</h3>
+        <h2>@Html.DisplayFor(model => model.StartPoint) <span class="glyphicon glyphicon-arrow-right"></span> @Html.DisplayFor(model => model.EndPoint)</h2>
+        <h3><span class="glyphicon glyphicon-road"></span> Commute Length: @Html.DisplayFor(model => model.TotalMiles) Miles</h3>
+        <h3><img src="~/Content/Images/co2-cloud__1__360.png" /> Emissions: @Html.DisplayFor(model => model.CO2GeneratedLbs, "NumFormat") Lbs CO2 Equivalent</h3>
+        <h3><span class="glyphicon glyphicon-globe"></span> Percentage of commute compared to daily global average: @ViewBag.Global%</h3>
+        <h3><span class="glyphicon glyphicon-map-marker"></span> Percentage of commute compared to daily Cuyahoga County average: @ViewBag.CuyahogaCounty%</h3>
+        <h3><span class="glyphicon glyphicon-calendar"></span> Percentage of commute compared to 2030 Paris Climate Agreement Goal: @ViewBag.Twenty30Goal%</h3>
 
     </div>
 
