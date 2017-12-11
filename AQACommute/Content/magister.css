@@ -11,6 +11,18 @@
     color: white;
 }
 
+.textpages {
+    text-align: left;
+    font-size: 14px;
+}
+
+#china {
+    float: left;
+    height: 45%;
+    width: 45%;
+    padding-right: 15px;
+}
+
 .text-center.landingBox {
     padding-top:20px;
 }

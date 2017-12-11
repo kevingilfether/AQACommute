@@ -13,6 +13,11 @@ namespace AQACommute.Controllers
             return View();
         }
 
+        public ActionResult ThePoint()
+        {
+            return View();
+        }
+
         public ActionResult LandingPage()
         {
             return View();
