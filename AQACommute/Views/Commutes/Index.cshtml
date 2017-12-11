@@ -17,7 +17,7 @@
         <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="thumbnail">
                 <h3>Commute @(i+1)</h3>
-                <h3>@Html.DisplayFor(modelItem => item[i].StartPoint)--> @Html.DisplayFor(modelItem => item[i].EndPoint)</h3>
+                <h3>@Html.DisplayFor(modelItem => item[i].StartPoint) --> @Html.DisplayFor(modelItem => item[i].EndPoint)</h3>
                 <p>
                     @Html.DisplayFor(modelItem => item[i].TransportMethod.Year)
                     @Html.DisplayFor(modelItem => item[i].TransportMethod.Make)
@@ -25,8 +25,8 @@
                     @Html.DisplayFor(modelItem => item[i].TransportMethod.Option)
                     @Html.DisplayFor(modelItem => item[i].TransportMethod.TransportClass)
                 </p>
-                <p>@Html.DisplayFor(modelItem => item[i].TotalMiles, "Double")</p>
-                <h4>@Html.DisplayFor(modelItem => item[i].CO2GeneratedLbs, "Double")</h4>
+                <p>Commute Length: @Html.DisplayFor(modelItem => item[i].TotalMiles, "Double") Miles</p>
+                <h4>Emissions: @Html.DisplayFor(modelItem => item[i].CO2GeneratedLbs, "Double") Lbs CO2 Equivalent</h4>
 
             </div>
         </div>
