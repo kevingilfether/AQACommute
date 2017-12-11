@@ -1,5 +1,8 @@
 ﻿$(function () {
     $(".hideMe").hide();
+    $("#createCommute").hide();
+    $("#yes").hide();
+    $("#no").hide();
 })
 
 if (document.getElementById("map")) {
@@ -15,10 +18,11 @@ if (document.getElementById("map")) {
         var onClickHandler = function () {
             calculateAndDisplayRoute(directionsService, directionsDisplay);
             getTripInfo();
-
+            
         };
         $(function () {
-            $('#plotPoints').on('click', onClickHandler);
+            $("#plotPoints").click(onClickHandler);
+            
         });
     }
 }
@@ -83,10 +87,11 @@ function getTripInfo() {
                 }
             }
             $(function () {
+                //Puts values in hidden fields on the Commutes/Create View
                 $("#startInput").val(origins);
                 $("#endInput").val(destinations);
                 $("#totalMiles").val(((parseFloat(distance)) / 1609.34));
-                $("#commuteTime").val((parseInt(duration) / 60));
+                $("#commuteTime").val(parseInt(duration/60));
                 var mapData = {
                     //set properties found in controller	
                     DistanceInfo: distance,
@@ -116,4 +121,23 @@ function getTripInfo() {
             });
         };
     }
+
+    $("#yes").show();
+    $("#no").show();
+    $("#plotPoints").hide();
+    $("#userQuery").text("Are these your correct start and end points?");
+    $("#yes").click(function () {
+        $("#userQuery").text("");
+        $("#yes").hide();
+        $("#no").hide();
+        $("#createCommute").show()
+    });
+    $("#no").click(function () {
+        $("#startPoint").val("");
+        $("#endPoint").val("");
+        $("#userQuery").text("");
+        $("#yes").hide();
+        $("#no").hide();
+        $("#plotPoints").show();
+    });
 }
