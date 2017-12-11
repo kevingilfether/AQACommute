@@ -1,7 +1,14 @@
 .landingBox {
+    margin-top: 50px;
     border-style: solid;
     border: none; 
-    background-color: rgba(74, 124, 44, 0.50)
+    background-color: rgba(78, 127, 106, .75);
+}
+
+#fontForced {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    color: white;
 }
 
 .text-center.landingBox {
@@ -19,9 +26,8 @@
 
 .jumbotron {
     text-align: center;
-    margin-bottom: 0px;
-    opacity: 0.6;
-    color: black;
+    background-color: rgba(78, 127, 106, 0.0);
+    color: white;
 }
 
 .muted {
@@ -34,7 +40,7 @@
 
 .border {
     
-   background-color: rgba(78, 127, 106, 0.7);
+   background-color: rgba(78, 127, 106, 0.75);
     margin: 75px 150px 75px 150px;
 }
 
@@ -46,6 +52,16 @@
 
 #navvy {
     margin-bottom: 0px;
+    background-color: #000000;
+    color: white;
+    font-size: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.selectors {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 /*Template's CSS Begins*/
@@ -64,8 +80,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-webkit-overflow-scrolling: touch;
 	line-height: 1.5em;
-	font-size:14px;
-	font-family: Helvetica, Arial, sans-serif;
+	font-size:12px;
+	font-family: 'Montserrat', sans-serif;
 	color:#fff;
 	color:rgba(255,255,255,.8); 
 	font-weight: normal;
@@ -189,16 +205,17 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 
 .title,
 .subtitle { 
-	font-family: 'Wire One', Helvetica, Arial, sans-serif;
+	font-family: 'Julius Sans One', sans-serif;
 	font-weight:normal;
-	font-size:7em;
+	font-size: 5em;
 	margin-bottom:15px; 
 	color:#FDF9F4; 
 	line-height:1em;
 }
 .subtitle { 
 	line-height:.9em;
-	font-size:5.5em;
+	font-size: 3em;
+    padding-top: 15px;
 	margin-top:0;
 	margin-bottom:40px; 
 }
