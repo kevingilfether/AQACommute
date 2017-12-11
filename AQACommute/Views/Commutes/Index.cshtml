@@ -4,64 +4,93 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="body-content">Commutes</h2>
 
-<p>
+<p class="body-content">
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CommuteTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartPoint)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndPoint)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalMiles)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CO2GeneratedLbs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TransportMethod.TransportClass)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CommuteTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartPoint)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndPoint)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalMiles, "Double")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CO2GeneratedLbs, "Double")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TransportMethod.Year)
-            @Html.DisplayFor(modelItem => item.TransportMethod.Make)
-            @Html.DisplayFor(modelItem => item.TransportMethod.Model)
-            @Html.DisplayFor(modelItem => item.TransportMethod.Option)
-            @Html.DisplayFor(modelItem => item.TransportMethod.TransportClass)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CommuteID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CommuteID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CommuteID })
-        </td>
-    </tr>
-}
+<div class="row body-content">
+    @foreach (var item in Model)
+    {
 
-</table>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="thumbnail">
+                <h3>@Html.DisplayFor(modelItem => item.StartPoint)--> @Html.DisplayFor(modelItem => item.EndPoint)</h3>
+                <p>
+                @Html.DisplayFor(modelItem => item.TransportMethod.Year)
+                @Html.DisplayFor(modelItem => item.TransportMethod.Make)
+                @Html.DisplayFor(modelItem => item.TransportMethod.Model)
+                @Html.DisplayFor(modelItem => item.TransportMethod.Option)
+                @Html.DisplayFor(modelItem => item.TransportMethod.TransportClass)
+            </p>
+                <p>@Html.DisplayFor(modelItem => item.TotalMiles, "Double")</p>
+                <h4>@Html.DisplayFor(modelItem => item.CO2GeneratedLbs, "Double")</h4>
+
+        </div>
+    </div>
+
+
+
+    }
+</div>
+
+
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CommuteTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartPoint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndPoint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalMiles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CO2GeneratedLbs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportMethod.TransportClass)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommuteTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartPoint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndPoint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalMiles, "Double")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CO2GeneratedLbs, "Double")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransportMethod.Year)
+                @Html.DisplayFor(modelItem => item.TransportMethod.Make)
+                @Html.DisplayFor(modelItem => item.TransportMethod.Model)
+                @Html.DisplayFor(modelItem => item.TransportMethod.Option)
+                @Html.DisplayFor(modelItem => item.TransportMethod.TransportClass)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.CommuteID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.CommuteID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.CommuteID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
