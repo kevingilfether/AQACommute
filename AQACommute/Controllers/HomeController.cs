@@ -10,7 +10,7 @@ namespace AQACommute.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("LandingPage");
         }
 
         public ActionResult ThePoint()
