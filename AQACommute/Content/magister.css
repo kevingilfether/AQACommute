@@ -28,6 +28,7 @@
     text-align: center;
     background-color: rgba(78, 127, 106, 0.0);
     color: white;
+    margin-bottom: 0px;
 }
 
 .muted {
@@ -48,6 +49,7 @@
     text-align: center;
     width: auto;
     height: auto;
+    margin-top: 20px;
 }
 
 #navvy {
@@ -83,7 +85,8 @@ body {
 	font-size:12px;
 	font-family: 'Montserrat', sans-serif;
 	color:#fff;
-	color:rgba(255,255,255,.8); 
+	color:rgba(255,255,255,.8);
+    text-shadow:0 2px 3px rgba(0,0,0,.4);
 	font-weight: normal;
     background: #505D6E url(/Content/Images/forest-2856865_1920.jpg) no-repeat center center fixed;
 }
@@ -211,6 +214,7 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	margin-bottom:15px; 
 	color:#FDF9F4; 
 	line-height:1em;
+    text-shadow:0 2px 3px rgba(0,0,0,.4)
 }
 .subtitle { 
 	line-height:.9em;

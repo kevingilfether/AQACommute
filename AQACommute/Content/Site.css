@@ -34,7 +34,7 @@ textarea {
 
 .row {
     padding: 20px;
-    height: 400px;
+    height: auto;
     width: auto;
 }
 
