@@ -75,3 +75,11 @@ textarea {
     left:-230px;
     top:70px;
 }
+
+#snowbus{
+   height: 400px;
+   width: 400px;
+   float: left;
+   padding-left: 15px;
+   padding-right: 20px;
+}
