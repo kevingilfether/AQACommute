@@ -75,3 +75,29 @@ textarea {
     left:-230px;
     top:70px;
 }
+
+/*details Page commute*/
+.detailsCommute{
+    text-align:left!important;
+}
+
+h3.detailsCommute{
+    font-size:18px;
+}
+
+.CO2 {
+    font-weight:bold;
+}
+
+.normalWeight {
+    font-weight:normal !important;
+}
+
+.arrowGlyphicon {
+    font-size:22px;
+}
+
+.resizeFlats{
+   height:30px;
+   width:30px;
+}
