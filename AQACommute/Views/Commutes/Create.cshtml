@@ -94,9 +94,8 @@
 </div>
 
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<input type="button" class="btn btn-default btn-lg" value="Back to My Commutes" id="btn1" onclick="location.href='@Url.Action("Index", "Commutes")'" />
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

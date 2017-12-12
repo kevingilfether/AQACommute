@@ -27,8 +27,8 @@
                 <h4>Emissions: @Html.DisplayFor(modelItem => item[i].CO2GeneratedLbs, "NumFormat") Lbs CO2 Equivalent</h4>
             
             @Html.ActionLink("Edit", "Edit", new { id = item[i].CommuteID }) |
-            @Html.ActionLink("Details", "Details", new { id = item[i].CommuteID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item[i].CommuteID })
+            @Html.ActionLink("Info", "Details", new { id = item[i].CommuteID }) |
+            @Html.ActionLink("Remove", "Delete", new { id = item[i].CommuteID })
             </div>
         </div>
     }
