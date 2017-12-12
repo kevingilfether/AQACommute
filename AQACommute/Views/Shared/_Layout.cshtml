@@ -4,11 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AQA - Air Quality Analysis</title>
+    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @*<link href="~/Content/TemplateStyling.css" rel="stylesheet" />*@
     <link href="~/Content/magister.css" rel="stylesheet" />
 
+<<<<<<< HEAD
 
     @*FAVICON*@
     <link href="~/plant_ZGD_icon.ico" rel="icon" />
@@ -16,6 +18,12 @@
 
     <link href="~/plant_ZGD_icon.ico" rel="icon" />
 
+=======
+    <link href="~/plant_ZGD_icon.ico" rel="icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Montserrat|Kavivanar" rel="stylesheet">
+
+>>>>>>> f02ae374f4b92f2f541ebcd88fdf59e0633cc6df
 </head>
 <body class="textcolor">
 
@@ -35,7 +43,7 @@
                 <ul class="nav navbar-nav selectors" style="float: right">
 
                     <li>@Html.ActionLink("Home", "LandingPage", "Home")</li>
-                    <li>@Html.ActionLink("Your Impact", "Create", "Commutes")</li>
+                    <li>@Html.ActionLink("Your Impact", "Index", "Commutes")</li>
                     <li>@Html.ActionLink("Vehicles", "Index", "TransportMethods")</li>
                     <li>@Html.ActionLink("Resources", "ResourcesPage", "Home")</li>
                     <li>@Html.ActionLink("Our Team", "AboutUs", "Home")</li>
@@ -48,11 +56,9 @@
     <!--BODY-->
     <div class="container content">
         <div id="wrap" class="border">
-            <div class="jumbotron">
-                <h1 class="title">AQA Commute</h1>
-                <p class="subtitle">Your personal Air Quality Analyst -- in your back pocket.</p>
+            <div class="notjtron">
+                <h2><i>"...With awareness comes change"</i></h2>
             </div>
-            <hr />
 
             @RenderBody()
 
@@ -72,7 +78,7 @@
 @*<p><a href="http://coolclimate.berkeley.edu/maps">Source: UC Berkeley CoolClimate Network, Average Annual Household Carbon Footprint (2013)</a></p>*@
 
 
-@Scripts.Render("~/bundles/jquery")
+
 @Scripts.Render("~/bundles/bootstrap")
 @RenderSection("scripts", required: false)
 </html>

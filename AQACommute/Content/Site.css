@@ -42,10 +42,79 @@ textarea {
     height: 400px;
 }
 /*Resources Page*/
-#ResourcesRows1 {
-    padding-right:160px;
+#UserResources {
+    padding-right: 160px;
 }
+#Title {
+    padding-left: 130px;
+}
+
+#ResourceMaster {
+    padding-right: 290px;
+}
+
 #GoogleAPI {
-    position:relative;
-    left:180px;
+    position: relative;
+    left: -230px;
+    top: 70px;
 }
+
+
+/*PVP TRANSIT PAGE START*/
+
+#snowbus {
+    height: 400px;
+    width: 400px;
+    float: left;
+    padding-left: 0px;
+    padding-right: 20px;
+}
+
+ul {
+    list-style-position: inside;
+}
+/*PVP TRANSIT PAGE END*/
+
+
+/*details Page commute*/
+.detailsCommute{
+    text-align:left!important;
+}
+
+h3.detailsCommute{
+    font-size:18px;
+}
+
+.CO2 {
+    font-weight:bold;
+}
+
+.normalWeight {
+    font-weight:normal !important;
+}
+
+.arrowGlyphicon {
+    font-size:22px;
+}
+
+.resizeFlats {
+    height: 30px;
+    width: 30px;
+}
+
+#snowbus {
+   height: 400px;
+   width: 400px;
+   float: left;
+   padding-left: 15px;
+   padding-right: 20px;
+}
+
+.row .thumbnail {
+    border-radius:15px 50px 30px !important;
+}
+
+.btn {
+    border-radius: 10px !important;
+}
+>>>>>>> f02ae374f4b92f2f541ebcd88fdf59e0633cc6df

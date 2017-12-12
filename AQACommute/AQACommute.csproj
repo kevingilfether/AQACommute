@@ -255,6 +255,9 @@
     <Content Include="Content\Images\Alexandria Ware %283%29.jpg" />
     <Content Include="Content\Images\AliMercer2.1 %281%29.jpg" />
     <Content Include="Content\Images\Brian.jpg" />
+    <Content Include="Content\Images\carbon-dioxide_360.png" />
+    <Content Include="Content\Images\Cheria.jpg" />
+    <Content Include="Content\Images\eiffel-tower-in-paris-france_360.png" />
     <Content Include="Content\Images\CarTalk.png" />
     <Content Include="Content\Images\Cheria.jpg" />
     <Content Include="Content\Images\ClimateActionTracker.gif" />
@@ -273,6 +276,7 @@
     <Content Include="Content\Images\nobackgroundWhiteLogo.jpeg" />
     <Content Include="Content\Images\Roy.jpg" />
     <Content Include="Content\Images\Shane.jpg" />
+    <Content Include="Content\Images\snow bus.jpg" />
     <Content Include="Content\Images\whitetransdesign.jpeg" />
     <Content Include="Content\Images\White_AQA_Logo.jpeg" />
     <Content Include="Content\Images\WWF.png" />
