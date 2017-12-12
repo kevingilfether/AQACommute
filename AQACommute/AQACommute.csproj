@@ -19,12 +19,9 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44337</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>
-    </IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>
-    </IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>
-    </IISExpressUseClassicPipelineMode>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -259,6 +256,7 @@
     <Content Include="Content\Images\AliMercer2.1 %281%29.jpg" />
     <Content Include="Content\Images\Brian.jpg" />
     <Content Include="Content\Images\Cheria.jpg" />
+    <Content Include="Content\Images\co2-cloud %281%29.png" />
     <Content Include="Content\Images\forest-2856865_1920 - Copy.jpg" />
     <Content Include="Content\Images\forest-2856865_1920.jpg" />
     <Content Include="Content\Images\GitHub-Mark-Light-32px.png" />
@@ -273,6 +271,7 @@
     <Content Include="Content\magister.js" />
     <Content Include="Content\modernizr.custom.72241.js" />
     <Content Include="Content\plant_8a0_icon.ico" />
+    <Content Include="Content\snow bus.jpg" />
     <Content Include="plant_ZGD_icon.ico" />
     <Content Include="Content\TemplateStyling.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -408,7 +407,7 @@
     <Content Include="Views\Home\LandingPage.cshtml" />
     <Content Include="Views\Home\PvPTransit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\NumFormat.cshtml" />
-
+    <Content Include="Views\Home\ThePoint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
