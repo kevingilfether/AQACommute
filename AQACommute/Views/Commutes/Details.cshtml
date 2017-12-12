@@ -26,8 +26,9 @@
 </div>
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CommuteID }) |
-    @Html.ActionLink("Back to List", "Index")
+    <input type="button" class="btn btn-default btn-lg" value="Resources" id="btn1" onclick="location.href='@Url.Action("ResourcePage", "Home")'" />
+    <input type="button" class="btn btn-default btn-lg" value="What's The Point?" id="btn1" onclick="location.href='@Url.Action("ThePoint", "Home")'" />
+    <input type="button" class="btn btn-default btn-lg" value="Back to My Commutes" id="btn1" onclick="location.href='@Url.Action("Index", "Commutes")'" />
 </p>
 
 
