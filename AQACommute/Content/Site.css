@@ -94,6 +94,11 @@ li.marginAlign{
     padding-top:5px;
 }
 
+.morePadding{
+    padding-left:30px;
+    list-style-type:none;
+}
+
 #padRight{
     padding-right:5px;
 }
@@ -130,4 +135,4 @@ li.marginAlign{
 .btn {
     border-radius: 10px !important;
 }
->>>>>>> f02ae374f4b92f2f541ebcd88fdf59e0633cc6df
+

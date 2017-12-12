@@ -12,14 +12,19 @@
         <ul>
             <li class="detailsCommute marginAlign"><span id="padRight" class="glyphicon glyphicon-road"></span> Commute Length: @Html.DisplayFor(model => model.TotalMiles) Miles</li>
             <li class="detailsCommute betweenLines"><img class="resizeFlats" src="~/Content/Images/carbon-dioxide_360.png" /> Emissions: @Html.DisplayFor(model => model.CO2GeneratedLbs, "NumFormat") Lbs CO<sub>2</sub> Equivalent</li>
-            </ul>
-            <br />
-        <h3 class="detailsCommute CO2"><span class="glyphicon glyphicon-leaf normalWeight"></span> CO<sub>2</sub> Equivalent Percentage Comparisons <span class="glyphicon glyphicon-leaf normalWeight"></span></h3>
-        <ul>
-            <li class="detailsCommute marginAlign"><span class="glyphicon glyphicon-globe"></span> Daily global average: @ViewBag.Global%</li>
-            <li class="detailsCommute marginAlign betweenLines"><span class="glyphicon glyphicon-picture"></span> Daily Cuyahoga County average: @ViewBag.CuyahogaCounty%</li>
-            <li class="detailsCommute betweenLines"><img class="resizeFlats" src="~/Content/Images/eiffel-tower-in-paris-france_360.png" />2030 Paris Climate Agreement Goal: @ViewBag.Twenty30Goal%</li>
         </ul>
+        <br />
+        <h3 class="detailsCommute CO2"><span class="glyphicon glyphicon-leaf normalWeight"></span> Your CO<sub>2</sub> Equivalent Percentage Comparisons <span class="glyphicon glyphicon-leaf normalWeight"></span></h3>
+        <ul>
+            <li class="detailsCommute marginAlign"><span class="glyphicon glyphicon-globe"></span> Daily global average: 51.28 lbs/day</li>
+            <li class="detailsCommute marginAlign betweenLines morePadding">Your percentage: @ViewBag.Global% </li>
+            <li style="list-style:none"></li>
+            <li class="detailsCommute marginAlign betweenLines"><span class="glyphicon glyphicon-picture"></span> Daily Cuyahoga County average: 73.98 lbs/day</li>
+            <li class="detailsCommute marginAlign betweenLines morePadding">Your percentage: @ViewBag.CuyahogaCounty%</li>
+            <li style="list-style:none"></li>
+            <li class="detailsCommute betweenLines"><img class="resizeFlats" src="~/Content/Images/eiffel-tower-in-paris-france_360.png" />2030 Paris Climate Agreement Goal: 41.3 lbs/day</li>
+            <li class="detailsCommute marginAlign morePadding">Your Percentage: @ViewBag.Twenty30Goal%</li>
+         </ul>
     </div>
 
     <div class="col-sm-6 col-md-4">
