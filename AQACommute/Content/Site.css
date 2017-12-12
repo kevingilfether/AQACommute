@@ -97,7 +97,15 @@ h3.detailsCommute{
     font-size:22px;
 }
 
-.resizeFlats{
-   height:30px;
-   width:30px;
+.resizeFlats {
+    height: 30px;
+    width: 30px;
+}
+
+#snowbus {
+   height: 400px;
+   width: 400px;
+   float: left;
+   padding-left: 15px;
+   padding-right: 20px;
 }
