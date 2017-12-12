@@ -123,3 +123,7 @@ li.marginAlign{
     border-radius: 10px !important;
 }
 
+/*What's the point page'*/
+p#tinyText{
+    font-size:8px;
+}
