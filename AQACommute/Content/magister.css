@@ -27,6 +27,18 @@
     padding-right: 15px;
 }
 
+p#text {
+  z-index: 100;
+  position: absolute!important;
+  color: white;
+  font-size: 5px;
+  font-weight: bold;
+  left: 150px;
+  top: 350px;
+  padding-left:380px;
+  padding-top:235px;
+}
+
 .text-center.landingBox {
     padding-top:20px;
 }
