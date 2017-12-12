@@ -42,36 +42,10 @@ textarea {
     height: 400px;
 }
 /*Resources Page*/
-/*.row {
-    height:auto;
-    padding-top:50px;
-    padding-bottom:50px;
-}
-.coolClimate {
-    padding-top:35px;
-}
-.NatGeo {
-    position:relative;
-    top:-20px;
-}
-#ResourcesIntroduction {
-    padding-top:30px;
-    padding-bottom:25px;
-}
-#Resources {
-    padding-left:150px;
-}
-#Resources2 {
-    padding-right:150px;
-}*/
-#Title {
-    padding-left:130px;
-}
-#ResourceMaster {
-    padding-right:290px;
+#ResourcesRows1 {
+    padding-right:160px;
 }
 #GoogleAPI {
     position:relative;
-    left:-230px;
-    top:70px;
+    left:180px;
 }
