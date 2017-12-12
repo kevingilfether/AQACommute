@@ -42,28 +42,9 @@ textarea {
     height: 400px;
 }
 /*Resources Page*/
-/*.row {
-    height:auto;
-    padding-top:50px;
-    padding-bottom:50px;
+#UserResources {
+    padding-right: 160px;
 }
-.coolClimate {
-    padding-top:35px;
-}
-.NatGeo {
-    position:relative;
-    top:-20px;
-}
-#ResourcesIntroduction {
-    padding-top:30px;
-    padding-bottom:25px;
-}
-#Resources {
-    padding-left:150px;
-}
-#Resources2 {
-    padding-right:150px;
-}*/
 #Title {
     padding-left: 130px;
 }
@@ -149,3 +130,4 @@ li.marginAlign{
 .btn {
     border-radius: 10px !important;
 }
+>>>>>>> f02ae374f4b92f2f541ebcd88fdf59e0633cc6df

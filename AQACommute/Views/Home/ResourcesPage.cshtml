@@ -3,18 +3,17 @@
 }
 
 <body>
-   
     <div class="container" id="ResourceMaster">
         <div id="Title">
             <h2>User Resources</h2>
         </div>
-        <div class="row">
-            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center landingBox">
+        <div class="row" id="UserResources">
+            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center">
                 <img src="~/Content/Images/WWF.png" height="100" width="100" />
                 <h4><a href="http://footprint.wwf.org.uk/tips" target="_blank">WWF</a></h4>
-                <p>WWF's tip section is full of helpful advice to lower your carbon footprint!</p>
+                <p>This link will take you to WWF's resource page. WWF's tip section is full of helpful advice to lower your carbon footprint!</p>
             </div>
-            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center landingBox">
+            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center">
                 <img src="~/Content/Images/CarTalk.png" height="100" width="100" />
                 <h4><a href="https://www.cartalk.com/content/global-warming-and-your-car-0" target="_blank">Car Talk</a></h4>
                 <p>Car Talk is a great resource for gaining a better understanding of how and why our vehicles attribute to climate change.</p>
@@ -24,43 +23,54 @@
             <h2>Project Resources</h2>
         </div>
         <div class="row">
-            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center landingBox">
+            <div class="col-md-6 text-center">
                 <img src="~/Content/Images/DeptofEnergy.png" height="100" width="100" />
                 <h4><a href="http://www.fueleconomy.gov/" target="_blank">Fuel Economy</a></h4>
                 <p>Fueleconomy.gov provided us with two great widgets, one gives fuel economy data based on user input and the other gives our users a delightful tip of the week!</p>
             </div>
-            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center landingBox">
-                <img src="~/Content/Images/CoolClimate.png" height="100" width="220" />
-                <h4><a href="http://coolclimate.berkeley.edu/index" target="_blank">CoolClimate</a></h4>
-                <p>CoolClimate Network is a set of tools and information created by the University of California, Berkeley, to help people create a cooler planet. We utilized these tools to gain information on the emissions trends of our area as well as the trends of the United States as a whole.</p>
-            </div>
-            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center landingBox">
+            <div class="col-md-6 text-center">
                 <img src="~/Content/Images/EPA.png" height="100" width="100" />
                 <h4><a href="https://www.epa.gov/" target="_blank">EPA</a></h4>
                 <p>The EPA's large source of information and statistics helped us to develop our algorithms calculating the user's carbon footprint.</p>
             </div>
-            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center landingBox">
-                <img src="~/Content/Images/NatGeo.png" height="150" width="200" />
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <img src="~/Content/Images/NatGeo.png" height="75" width="200" />
                 <h4><a href="https://news.nationalgeographic.com/2017/10/paris-agreement-climate-change-usa-nicaragua-policy-environment/" target="_blank">Paris Climate Agreement</a></h4>
                 <p>National Geographic's Paris Agreement page aided us in gaining information regarding future emissions goals.</p>
             </div>
-            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center landingBox">
-                <img src="~/Content/Images/GCBL.jpg" height="120" width="150" />
-                <h4><a href="http://www.gcbl.org/blog/2016/03/high-and-low-carbon-footprints-of-cleveland-vs-suburbs" target="_blank">Green City Blue Lake</a></h4>
-                <p>This resource, so kindly provided by the Cleveland Museum of Natural History, was used to gain information on the emissions statistics of Cleveland versus it's surrounding suburbs.</p>
-            </div>
-            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center landingBox">
+            <div class="col-md-6 text-center">
                 <img src="~/Content/Images/ClimateActionTracker.gif" height="100" width="100" />
                 <h4><a href="http://climateactiontracker.org/decarbonisation/countries/us/sector_indicators/buildings__buildings_emissions_intensity_per_capita+oil_and_gas__oil_and_gas_emissions_intensity/variables/all" target="_blank">Climate Action Tracker</a></h4>
                 <p>We used this handy tool to check the carbon emission statistics going all the way back to 1990.</p>
             </div>
         </div>
-        <div id="GoogleAPI">
-            <div class="col-md-offset-2 col-xs-6 col-md-4 text-center landingBox">
-                <img src="~/Content/Images/GoogleAPI.png" height="100" width="100" />
-                <h4><a href="https://developers.google.com/maps/web/" target="_blank">Google APIs</a></h4>
-                <p>Google provides many wonderful APIs, one of which were used to display Google maps and use the user-inputted data to populate our fields.</p>
+
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <img src="~/Content/Images/CoolClimate.png" height="100" width="220" />
+                <h4><a href="http://coolclimate.berkeley.edu/index" target="_blank">CoolClimate</a></h4>
+                <p>CoolClimate Network is a set of tools and information created by the University of California, Berkeley, to help people create a cooler planet. We utilized these tools to gain information on the emissions trends of the United States.</p>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="~/Content/Images/GCBL.jpg" height="120" width="150" />
+                <h4><a href="http://www.gcbl.org/blog/2016/03/high-and-low-carbon-footprints-of-cleveland-vs-suburbs" target="_blank">Green City Blue Lake</a></h4>
+                <p>This resource, so kindly provided by the Cleveland Museum of Natural History, was used to gain information on the emissions statistics of Cleveland versus it's surrounding suburbs.</p>
             </div>
         </div>
     </div>
+
+    <div class="row" id="GoogleAPI">
+        <div class="col-md-offset-2 col-xs-6 col-md-4 text-center">
+            <img src="~/Content/Images/GoogleAPI.png" height="100" width="100" />
+            <h4><a href="https://developers.google.com/maps/web/" target="_blank">Google APIs</a></h4>
+            <p>Google provides many wonderful APIs, one of which were used to display Google maps and use the user-inputted data to populate our fields.</p>
+        </div>
+    </div>
+    <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+    <div>Icons made by <a href="https://www.flaticon.com/authors/sarfraz-shoukat" title="Sarfraz Shoukat">Sarfraz Shoukat</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    <p>For more information, check out our @Html.ActionLink("public Vs. personal transit", "PvPTransit", "Home") page.</p>
 </body>

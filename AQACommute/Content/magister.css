@@ -11,6 +11,10 @@
     color: white;
 }
 
+.headFont {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
 .textpages {
     text-align: left;
     font-size: 14px;
@@ -36,11 +40,12 @@
     margin-bottom:18px;
 }
 
-.jumbotron {
+.notjtron {
     text-align: center;
     background-color: rgba(78, 127, 106, 0.0);
     color: white;
     margin-bottom: 0px;
+    font-family: 'Julius sans one', sans-serif;
 }
 
 .muted {
