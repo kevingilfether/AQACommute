@@ -1,5 +1,13 @@
-﻿.textcolor {
+﻿.container {
+    width: auto;
+}
+
+.textcolor {
     color: white;
+}
+
+h1 {
+    font-family: 'Julius Sans One', sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -26,7 +34,8 @@ textarea {
 
 .row {
     padding: 20px;
-    height: 400px;
+    height: auto;
+    width: auto;
 }
 
 #map {
