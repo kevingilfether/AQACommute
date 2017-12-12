@@ -130,5 +130,9 @@ h3.detailsCommute{
 }
 
 .row .thumbnail {
-    border-radius:20px !important;
+    border-radius:15px 50px 30px !important;
+}
+
+.btn {
+    border-radius: 10px !important;
 }
