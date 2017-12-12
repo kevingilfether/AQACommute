@@ -126,12 +126,6 @@ function getTripInfo() {
     $("#reset").show();
     $("#plotPoints").hide();
     $("#userQuery").text("Are these your correct start and end points?");
-    //$("#yes").click(function () {
-    //    $("#userQuery").text("");
-    //    $("#yes").hide();
-    //    $("#no").hide();
-    //    $("#createCommute").show()
-    //});
     $("#reset").click(function () {
         $("#startPoint").val("");
         $("#endPoint").val("");
