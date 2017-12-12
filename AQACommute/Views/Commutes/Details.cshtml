@@ -10,7 +10,7 @@
     <div class="col-sm-6 col-md-8">
         <h3 class="detailsCommute CO2"><span class="glyphicon glyphicon-map-marker"></span> @Html.DisplayFor(model => model.StartPoint) <span class="glyphicon glyphicon-arrow-right arrowGlyphicon"></span> @Html.DisplayFor(model => model.EndPoint)</h3>
         <ul>
-            <li class="detailsCommute marginAlign"><span id="padRight" class="glyphicon glyphicon-road"></span> Commute Length: @Html.DisplayFor(model => model.TotalMiles) Miles</li>
+            <li class="detailsCommute marginAlign"><span id="padRight" class="glyphicon glyphicon-road"></span> Commute Length: @Html.DisplayFor(model => model.TotalMiles, "NumFormat") Miles</li>
             <li class="detailsCommute betweenLines"><img class="resizeFlats" src="~/Content/Images/carbon-dioxide_360.png" /> Emissions: @Html.DisplayFor(model => model.CO2GeneratedLbs, "NumFormat") Lbs CO<sub>2</sub> Equivalent</li>
         </ul>
         <br />
