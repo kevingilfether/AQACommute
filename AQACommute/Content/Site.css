@@ -100,8 +100,21 @@ ul {
     text-align:left!important;
 }
 
-h3.detailsCommute{
+li.detailsCommute{
     font-size:18px;
+    list-style-type:none;
+}
+
+li.marginAlign{
+    margin-left:5px;
+}
+
+.betweenLines{
+    padding-top:5px;
+}
+
+#padRight{
+    padding-right:5px;
 }
 
 .CO2 {

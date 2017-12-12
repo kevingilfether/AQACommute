@@ -7,16 +7,19 @@
 <h1 class="body-content">Trip Insights</h1>
 
 <div class="row body-content">
-    <div class="col-sm-6 col-md-8">        
-        <h2 class="detailsCommute"><span class="glyphicon glyphicon-map-marker"></span> @Html.DisplayFor(model => model.StartPoint) <span class="glyphicon glyphicon-arrow-right arrowGlyphicon"></span> @Html.DisplayFor(model => model.EndPoint)</h2>
-        <h3 class="detailsCommute"><span class="glyphicon glyphicon-road"></span> Commute Length: @Html.DisplayFor(model => model.TotalMiles) Miles</h3>
-        <h3 class="detailsCommute"><img class="resizeFlats" src="~/Content/Images/carbon-dioxide_360.png" /> Emissions: @Html.DisplayFor(model => model.CO2GeneratedLbs, "NumFormat") Lbs CO<sub>2</sub> Equivalent</h3>
-        <br/>
+    <div class="col-sm-6 col-md-8">
+        <h3 class="detailsCommute CO2"><span class="glyphicon glyphicon-map-marker"></span> @Html.DisplayFor(model => model.StartPoint) <span class="glyphicon glyphicon-arrow-right arrowGlyphicon"></span> @Html.DisplayFor(model => model.EndPoint)</h3>
+        <ul>
+            <li class="detailsCommute marginAlign"><span id="padRight" class="glyphicon glyphicon-road"></span> Commute Length: @Html.DisplayFor(model => model.TotalMiles) Miles</li>
+            <li class="detailsCommute betweenLines"><img class="resizeFlats" src="~/Content/Images/carbon-dioxide_360.png" /> Emissions: @Html.DisplayFor(model => model.CO2GeneratedLbs, "NumFormat") Lbs CO<sub>2</sub> Equivalent</li>
+            </ul>
+            <br />
         <h3 class="detailsCommute CO2"><span class="glyphicon glyphicon-leaf normalWeight"></span> CO<sub>2</sub> Equivalent Percentage Comparisons <span class="glyphicon glyphicon-leaf normalWeight"></span></h3>
-        <h3 class="detailsCommute"><span class="glyphicon glyphicon-globe"></span> Daily global average: @ViewBag.Global%</h3>
-        <h3 class="detailsCommute"><span class="glyphicon glyphicon-picture"></span> Daily Cuyahoga County average: @ViewBag.CuyahogaCounty%</h3>
-        <h3 class="detailsCommute"><img class="resizeFlats" src="~/Content/Images/eiffel-tower-in-paris-france_360.png" /> 2030 Paris Climate Agreement Goal: @ViewBag.Twenty30Goal%</h3>
-
+        <ul>
+            <li class="detailsCommute marginAlign"><span class="glyphicon glyphicon-globe"></span> Daily global average: @ViewBag.Global%</li>
+            <li class="detailsCommute marginAlign betweenLines"><span class="glyphicon glyphicon-picture"></span> Daily Cuyahoga County average: @ViewBag.CuyahogaCounty%</li>
+            <li class="detailsCommute betweenLines"><img class="resizeFlats" src="~/Content/Images/eiffel-tower-in-paris-france_360.png" />2030 Paris Climate Agreement Goal: @ViewBag.Twenty30Goal%</li>
+        </ul>
     </div>
 
     <div class="col-sm-6 col-md-4">
