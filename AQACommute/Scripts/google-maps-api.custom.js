@@ -1,6 +1,5 @@
 ﻿$(function () {
     $(".hideMe").hide();
-    //$("#createCommute").hide();
     $("#createCommute").hide();
     $("#reset").hide();
 })
