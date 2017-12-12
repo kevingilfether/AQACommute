@@ -58,7 +58,7 @@ namespace AQACommute.Controllers
                 transportMethod.TransportMode = "Automobile";
                 db.TransportMethods.Add(transportMethod);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Commutes");
             }
 
             ViewBag.MakeID = new SelectList(db.Makes, "MakeID", "MakeName", transportMethod.MakeID);

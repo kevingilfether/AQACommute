@@ -261,6 +261,7 @@
     <Content Include="Content\Images\CoolClimate.png" />
     <Content Include="Content\Images\DeptofEnergy.png" />
     <Content Include="Content\Images\EPA.png" />
+    <Content Include="Content\Images\co2-cloud %281%29.png" />
     <Content Include="Content\Images\forest-2856865_1920 - Copy.jpg" />
     <Content Include="Content\Images\forest-2856865_1920.jpg" />
     <Content Include="Content\Images\GCBL.jpg" />
@@ -272,13 +273,16 @@
     <Content Include="Content\Images\nobackgroundWhiteLogo.jpeg" />
     <Content Include="Content\Images\Roy.jpg" />
     <Content Include="Content\Images\Shane.jpg" />
+    <Content Include="Content\Images\whitetransdesign.jpeg" />
     <Content Include="Content\Images\White_AQA_Logo.jpeg" />
     <Content Include="Content\Images\WWF.png" />
     <Content Include="Content\magister.css" />
     <Content Include="Content\magister.js" />
     <Content Include="Content\modernizr.custom.72241.js" />
+    <Content Include="Content\plant_8a0_icon.ico" />
+    <Content Include="Content\snow bus.jpg" />
+    <Content Include="plant_ZGD_icon.ico" />
     <Content Include="Content\TemplateStyling.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -411,6 +415,8 @@
     <Content Include="Views\Home\ResourcesPage.cshtml" />
     <Content Include="Views\Home\LandingPage.cshtml" />
     <Content Include="Views\Home\PvPTransit.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\NumFormat.cshtml" />
+    <Content Include="Views\Home\ThePoint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

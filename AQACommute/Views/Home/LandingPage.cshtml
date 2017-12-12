@@ -7,7 +7,6 @@
 
 <html>
 <head>
-
     <title>AQA Commute</title>
 
     <link rel="shortcut icon" href="#">
@@ -21,6 +20,7 @@
     <!-- Fonts -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Montserrat" rel="stylesheet">
 
 </head>
 <body class="text-shadows">
@@ -36,8 +36,8 @@
                 </button>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"><li class="active"></ul>
-                <ul class="nav navbar-nav" style="float: right">
+                <ul class="nav navbar-nav"><li class="active"><img src="~/Content/Images/whitetransdesign.jpeg"/></li></ul>
+                <ul class="nav navbar-nav selectors" style="float: right">
 
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Your Impact", "Create", "Commutes")</li>
@@ -61,14 +61,14 @@
                     <h2 class="subtitle">Your Personal Air Quality Analyst</h2>
 
                     <!-- Short introductory (optional) -->
-                    <h3 class="tagline" id="taglineOverwrite">
+                    <h3 class="tagline" id="fontForced">
                         We track your commute's air quality impact so the hard work is done for you.<br />
                         Your Air Quality Analyst takes your awareness that the environment is in trouble<br />
                         and helps you take action to minimize your affect.
                     </h3>
 
                     <!-- Nice place to describe your site in a sentence or two -->
-                    <input type="button" class="btn btn-default btn-lg" value="Continue" id="btn1" onclick="location.href='@Url.Action("Create", "Commutes")'" />
+                    <input type="button" class="btn btn-default btn-lg" value="Continue" id="btn1" onclick="location.href='@Url.Action("Create", "TransportMethods")'" />
 
                 </div> <!-- /col -->
             </div> <!-- /row -->

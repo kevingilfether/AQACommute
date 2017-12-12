@@ -9,6 +9,16 @@
     @*<link href="~/Content/TemplateStyling.css" rel="stylesheet" />*@
     <link href="~/Content/magister.css" rel="stylesheet" />
 
+<<<<<<< HEAD
+    @*FAVICON*@
+        <link href="~/plant_ZGD_icon.ico" rel="icon" />
+=======
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Montserrat" rel="stylesheet">
+
+    <link href="~/plant_ZGD_icon.ico" rel="icon" />
+
+>>>>>>> 2565ef7c2b99ac4fc454ba6c0631e16c84c5969c
+
 </head>
 <body class="textcolor">
 
@@ -24,8 +34,8 @@
                 </button>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"><li class="active"></ul>
-                <ul class="nav navbar-nav" style="float: right">
+                <ul class="nav navbar-nav"><li class="active"><img src="~/Content/Images/whitetransdesign.jpeg" /></li></ul>
+                <ul class="nav navbar-nav selectors" style="float: right">
 
                     <li>@Html.ActionLink("Home", "LandingPage", "Home")</li>
                     <li>@Html.ActionLink("Your Impact", "Create", "Commutes")</li>
@@ -37,17 +47,18 @@
             </div>
         </div>
     </nav>
-    <div class="jumbotron">
-        <h1>AQA Commute</h1>
-        <p>Your personal Air Quality Analyst -- in your back pocket.</p>
-    </div>
 
     <!--BODY-->
     <div class="container content">
         <div id="wrap" class="border">
+            <div class="jumbotron">
+                <h1 class="title">AQA Commute</h1>
+                <p class="subtitle">Your personal Air Quality Analyst -- in your back pocket.</p>
+            </div>
+            <hr />
 
             @RenderBody()
-            <hr />
+
 
         </div> <!-- /container -->
     </div> <!-- /wrap /border -->

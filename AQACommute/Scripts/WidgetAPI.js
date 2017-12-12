@@ -4,20 +4,18 @@ var MPGInfo;
 var _vehicleID;
 
 $(function () {
+    $("#createVehicle").hide();
+
     $(".carYear").change(function () {
-        alert($(".carYear").val());
         $("#Year").val($(".carYear").val());
     })
     $(".carMake").change(function () {
-        alert($(".carMake").val());
         $("#Make").val($(".carMake").val());
     })
     $(".carModel").change(function () {
-        alert($(".carModel").val());
         $("#Model").val($(".carModel").val());
     })
     $(".carVersion").change(function () {
-        alert($(".carVersion").val());
         $("#Options").val($(".carVersion").val());
     })
     var localInput = JSON.parse(localStorage.getItem('userInput'));
@@ -138,15 +136,19 @@ vehicleRequest.selection = function () {
                 $carVersion.append('<option>' + $(this).text() + '</option>');
             });
             if ($carVersion.children().length === 1) {
-                $errorVehicle.text('Sorry, we could not find the information about the vehicle.');
+                $errorVehicle.text('Sorry, we could not find the information about the vehicle.  An average mpg of 20 will be used for this vehicle.');
+                $("#AvgMPG").val("20");
+                $("#createVehicle").show();
+
             } else {
+                
                 $carVersion.on('change', function () {
                     vehicleID = $(xml).find("text:contains('" + $carVersion.val() + "')").next("value").text();
                     //http://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=2012&make=Honda&model=Fit
                     //http://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/26425
                     console.log('Car ID: ' + vehicleID)
                     _vehicleID = vehicleID;
-
+                    $("#createVehicle").show();
                     if (_vehicleID) {
                         getCarMPG();
                     }
