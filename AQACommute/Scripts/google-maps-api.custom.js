@@ -1,8 +1,8 @@
 ﻿$(function () {
     $(".hideMe").hide();
+    //$("#createCommute").hide();
     $("#createCommute").hide();
-    $("#yes").hide();
-    $("#no").hide();
+    $("#reset").hide();
 })
 
 if (document.getElementById("map")) {
@@ -110,7 +110,8 @@ function getTripInfo() {
                         alert("Info POSTed");
                         var returnValue = parseFloat(data);
                         $("#co2GeneratedLbs").val(returnValue);
-                        $("#co2Footprint").text(((Math.round(returnValue, 2)).toFixed(2)) + " lbs/CO2 for this trip.");
+                        $("#textReturn").text((Math.round((parseFloat(distance) / 1609.34), 2)) + " miles for this trip.");
+                        
                     },
                     error: function (data) {
                         alert("Error POSTing view info to controller!");
@@ -122,22 +123,22 @@ function getTripInfo() {
         };
     }
 
-    $("#yes").show();
-    $("#no").show();
+    $("#createCommute").show();
+    $("#reset").show();
     $("#plotPoints").hide();
     $("#userQuery").text("Are these your correct start and end points?");
-    $("#yes").click(function () {
-        $("#userQuery").text("");
-        $("#yes").hide();
-        $("#no").hide();
-        $("#createCommute").show()
-    });
-    $("#no").click(function () {
+    //$("#yes").click(function () {
+    //    $("#userQuery").text("");
+    //    $("#yes").hide();
+    //    $("#no").hide();
+    //    $("#createCommute").show()
+    //});
+    $("#reset").click(function () {
         $("#startPoint").val("");
         $("#endPoint").val("");
         $("#userQuery").text("");
-        $("#yes").hide();
-        $("#no").hide();
+        $("#createCommute").hide();
+        $("#reset").hide();
         $("#plotPoints").show();
     });
 }
