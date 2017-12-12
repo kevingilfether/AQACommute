@@ -42,21 +42,8 @@ textarea {
     height: 400px;
 }
 /*Resources Page*/
-#UserResources {
-    padding-right: 160px;
-}
 #Title {
-    padding-left: 130px;
-}
-
-#ResourceMaster {
-    padding-right: 290px;
-}
-
-#GoogleAPI {
-    position: relative;
-    left: -230px;
-    top: 70px;
+    text-align:center;
 }
 
 
