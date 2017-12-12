@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "ResourcesPage";
+}
+
+<body>
+    <div class="row resourceIntro" id="ResourceIntro">
+        <h2>Resources</h2>
+
+        <h5>Here we have a list of resources used for research and development in our application.</h5>
+    </div>
+
+    <div class="row resourceOne" id="Resources">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="resourceTextSection">
+            <h4>Fuel Economy</h4>
+            <p>First we have a widget obtained from <a href="http://www.fueleconomy.gov/" target="_blank">fueleconomy.gov</a> used to obtain fuel economy information directly from the U.S Government.</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="img fuelEconomy">
+                <img src="~/Content/Images/DeptofEnergy.png" height="100" width="100" />
+            </div>
+        </div>
+    </div>
+    <div class="row resourceTwo" id="Resources2">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="img coolClimate">
+                <img src="~/Content/Images/CoolClimate.png" height="100" width="220" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="resourceTextSection">
+            <h4>Cool Climate</h4>
+            <p><a href="http://coolclimate.berkeley.edu/index" target="_blank">CoolClimate</a> Network is a set of tools and information created by the University of California, Berkeley, to help people create a cooler planet. We utilized these tools to gain information on the emissions trends of our area as well as the trends of the United States as a whole.</p>
+        </div>
+    </div>
+    <div class="row resourceThree" id="Resources">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="resourceTextSection">
+            <h4>WWF</h4>
+            <p>Here we utilized <a href="http://footprint.wwf.org.uk/tips" target="_blank">WWF's</a> tip section to help people gain a better understanding of what they can do to create a better planet.</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="img wwf">
+                <img src="~/Content/Images/WWF.png" height="100" width="100" />
+            </div>
+        </div>
+    </div>
+    <div class="row resourceFour" id="Resources2">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="img EPA">
+                <img src="~/Content/Images/EPA.png" height="100" width="100" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="resourceTextSection">
+            <h4>EPA</h4>
+            <p>We used the <a href="https://www.epa.gov/" target="_blank">EPA's</a> large source of information and statistics to develop our algorithms calculating the user's carbon footprint.</p>
+        </div>
+    </div>
+    <div class="row resourceFive" id="Resources">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="resourceTextSection">
+            <h4>Paris Climate Agreement</h4>
+            <p>Here we used <a href="https://news.nationalgeographic.com/2017/10/paris-agreement-climate-change-usa-nicaragua-policy-environment/" target="_blank">National Geographic's Paris Agreement</a> page to gain information regarding future emissions goals</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="img NatGeo">
+                <img src="~/Content/Images/NatGeo.png" height="150" width="200" />
+            </div>
+        </div>
+    </div>
+    <div class="row resourceSix" id="Resources2">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="img climateActionTracker">
+                <img src="~/Content/Images/ClimateActionTracker.gif" height="100" width="100" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="resourceTextSection">
+            <h4>Climate Action Tracker</h4>
+            <p>We used <a href="http://climateactiontracker.org/decarbonisation/countries/us/sector_indicators/buildings__buildings_emissions_intensity_per_capita+oil_and_gas__oil_and_gas_emissions_intensity/variables/all" target="_blank">this</a> handy tool to check the carbon emission statistics going all the way back to 1990.</p>
+        </div>
+    </div>
+    <div class="row resourceSeven" id="Resources">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="resourceTextSection">
+            <h4>Green City Blue Lake</h4>
+            <p><a href="http://www.gcbl.org/blog/2016/03/high-and-low-carbon-footprints-of-cleveland-vs-suburbs" target="_blank">This resource</a>, so kindly provided by the Cleveland Museum of Natural History, was used to gain information on the emissions statistics of Cleveland versus it's surrounding suburbs.</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="img GCBL">
+                <img src="~/Content/Images/GCBL.jpg" height="120" width="150" />
+            </div>
+        </div>
+    </div>
+    <div class="row resourceEight" id="Resources2">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="img carTalk">
+                <img src="~/Content/Images/CarTalk.png" height="100" width="120" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="resourceTextSection">
+            <h4>Car Talk</h4>
+            <p>We used <a href="https://www.cartalk.com/content/global-warming-and-your-car-0" target="_blank">Car Talk</a> as a resource for statistics as well as tips for our users.</p>
+        </div>
+    </div>
+    <div class="row resourceSeven" id="Resources">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="resourceTextSection">
+            <h4>Google APIs</h4>
+            <p>Google provides many wonderful APIs, <a href="https://developers.google.com/maps/web/" target="_blank">one</a> of which we used to display Google maps and use the user-inputted data to populate our fields.</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="img googleAPI">
+                <img src="~/Content/Images/GoogleAPI.png" height="100" width="100" />
+            </div>
+        </div>
+    </div>
+
+</body>
