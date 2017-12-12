@@ -11,7 +11,7 @@
 <div class="row body-content">
     @for (int i = 0; i < Model.Count(); i++)
             {
-                var item = Model.ToArray();
+                var item = Model.ToList();
         <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="thumbnail">
                 <h4>
@@ -21,7 +21,7 @@
                     @Html.DisplayFor(modelItem => item[i].Option)
                     @Html.DisplayFor(modelItem => item[i].TransportClass)
                 </h4>
-                <br/>
+                <br />
                 <p>Average MPG: <span>@Html.DisplayFor(modelItem => item[i].AvgMPG)</span></p>
                 @Html.ActionLink("Edit", "Edit", new { id = item[i].TransportMethodID }) |
                 @Html.ActionLink("Info", "Details", new { id = item[i].TransportMethodID }) |
