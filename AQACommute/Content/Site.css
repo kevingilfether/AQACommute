@@ -65,21 +65,34 @@ textarea {
     padding-right:150px;
 }*/
 #Title {
-    padding-left:130px;
-}
-#ResourceMaster {
-    padding-right:290px;
-}
-#GoogleAPI {
-    position:relative;
-    left:-230px;
-    top:70px;
+    padding-left: 130px;
 }
 
-#snowbus{
-   height: 400px;
-   width: 400px;
-   float: left;
-   padding-left: 15px;
-   padding-right: 20px;
+#ResourceMaster {
+    padding-right: 290px;
 }
+
+#GoogleAPI {
+    position: relative;
+    left: -230px;
+    top: 70px;
+}
+
+
+/*PVP TRANSIT PAGE START*/
+
+#snowbus {
+    height: 400px;
+    width: 400px;
+    float: left;
+    padding-left: 0px;
+    padding-right: 20px;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+
+/*PVP TRANSIT PAGE END*/
+
