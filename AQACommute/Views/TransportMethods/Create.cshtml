@@ -4,6 +4,14 @@
     ViewBag.Title = "Add Your Vehicle";
 }
 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/WidgetAPI.js"></script>
+}
+
+
+
+
 <h1 class="headFont">Add Your Vehicle</h1>
 <br />
 
@@ -189,7 +197,3 @@
 
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/WidgetAPI.js"></script>
-}
