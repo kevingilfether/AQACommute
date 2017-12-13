@@ -4,7 +4,7 @@ var MPGInfo;
 var _vehicleID;
 
 $(function () {
-    //$("#createVehicle").hide();
+    $("#createVehicle").hide();
 
     $(".carYear").change(function () {
         $("#Year").val($(".carYear").val());
