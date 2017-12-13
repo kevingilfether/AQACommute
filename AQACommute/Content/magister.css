@@ -13,6 +13,11 @@
 
 .headFont {
     font-family: 'Julius Sans One', sans-serif;
+    font-size: 40px;
+    padding-top: 15px;
+    font-weight: 600;
+    margin-top: 0px;
+
 }
 
 .textpages {
@@ -59,7 +64,7 @@
 .border {
     
    background-color: rgba(78, 127, 106, 0.75);
-    margin: 75px 150px 75px 150px;
+    margin: 50px 150px 50px 150px;
 }
 
 .content {

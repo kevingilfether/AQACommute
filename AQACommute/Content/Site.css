@@ -42,40 +42,8 @@ textarea {
     height: 400px;
 }
 /*Resources Page*/
-/*.row {
-    height:auto;
-    padding-top:50px;
-    padding-bottom:50px;
-}
-.coolClimate {
-    padding-top:35px;
-}
-.NatGeo {
-    position:relative;
-    top:-20px;
-}
-#ResourcesIntroduction {
-    padding-top:30px;
-    padding-bottom:25px;
-}
-#Resources {
-    padding-left:150px;
-}
-#Resources2 {
-    padding-right:150px;
-}*/
 #Title {
-    padding-left: 130px;
-}
-
-#ResourceMaster {
-    padding-right: 290px;
-}
-
-#GoogleAPI {
-    position: relative;
-    left: -230px;
-    top: 70px;
+    text-align:center;
 }
 
 
@@ -100,8 +68,26 @@ ul {
     text-align:left!important;
 }
 
-h3.detailsCommute{
+li.detailsCommute{
     font-size:18px;
+    list-style-type:none;
+}
+
+li.marginAlign{
+    margin-left:5px;
+}
+
+.betweenLines{
+    padding-top:5px;
+}
+
+.morePadding{
+    padding-left:30px;
+    list-style-type:none;
+}
+
+#padRight{
+    padding-right:5px;
 }
 
 .CO2 {
@@ -136,3 +122,30 @@ h3.detailsCommute{
 .btn {
     border-radius: 10px !important;
 }
+
+
+/*What's the point page'*/
+p#tinyText{
+    font-size:8px;
+    text-align:center!important;
+}
+
+/*Responsive Font Sizes*/
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 3em !important;
+    }
+
+    h2 {
+        font-size: 2em !important;
+    }
+
+    h3 {
+        font-size: 1.5em !important;
+    }
+
+    .border {
+        margin: 50px 10px 50px 10px !important;
+    }
+}
+

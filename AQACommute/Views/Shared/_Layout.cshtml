@@ -10,9 +10,12 @@
     @*<link href="~/Content/TemplateStyling.css" rel="stylesheet" />*@
     <link href="~/Content/magister.css" rel="stylesheet" />
 
+
+    @*FAVICON*@
     <link href="~/plant_ZGD_icon.ico" rel="icon" />
 
-    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Montserrat|Kavivanar" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Montserrat" rel="stylesheet">
 
 </head>
 <body class="textcolor">
@@ -29,15 +32,19 @@
                 </button>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"><li class="active"><img src="~/Content/Images/whitetransdesign.jpeg" /></li></ul>
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="~/Home/LandingPage" id="navvy"><img src="~/Content/Images/whitetransdesign.jpeg" /></a>
+                    </li>
+                </ul>
                 <ul class="nav navbar-nav selectors" style="float: right">
 
-                    <li>@Html.ActionLink("Home", "LandingPage", "Home")</li>
-                    <li>@Html.ActionLink("Your Impact", "Index", "Commutes")</li>
-                    <li>@Html.ActionLink("Vehicles", "Index", "TransportMethods")</li>
+                    @*<li>@Html.ActionLink("Home", "LandingPage", "Home")</li>*@
+                    <li>@Html.ActionLink("Add New Commute", "Create", "TransportMethods")</li>
+                    <li>@Html.ActionLink("What's The Point?", "ThePoint", "Home")</li>
+                    <li>@Html.ActionLink("Which Transit?", "PvPTransit", "Home")</li>
                     <li>@Html.ActionLink("Resources", "ResourcesPage", "Home")</li>
                     <li>@Html.ActionLink("Our Team", "AboutUs", "Home")</li>
-                    <li>@Html.ActionLink("Which Transit?", "PvPTransit", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -46,9 +53,9 @@
     <!--BODY-->
     <div class="container content">
         <div id="wrap" class="border">
-            <div class="notjtron">
-                <h2><i>"...With awareness comes change"</i></h2>
-            </div>
+ 
+
+  
 
             @RenderBody()
 
@@ -58,7 +65,7 @@
     <!--FOOTER-->
     <div id="footer">
         <div class="container">
-            <p class="muted credit">Our footer is the best footer.</p>
+            <p class="muted credit">&copy;AQA Commute 2017</p>
         </div>
     </div>
 
