@@ -123,12 +123,13 @@ li.marginAlign{
     border-radius: 10px !important;
 }
 
-<<<<<<< HEAD
+
 /*What's the point page'*/
 p#tinyText{
     font-size:8px;
+    text-align:center!important;
 }
-=======
+
 /*Responsive Font Sizes*/
 @media screen and (max-width: 767px) {
     h1 {
@@ -148,4 +149,3 @@ p#tinyText{
     }
 }
 
->>>>>>> d2ef74912a087d8bde1e7aa5b98f14aca2dec418
