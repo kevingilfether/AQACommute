@@ -4,7 +4,7 @@ var MPGInfo;
 var _vehicleID;
 
 $(function () {
-    $("#createVehicle").hide();
+    //$("#createVehicle").hide();
 
     $(".carYear").change(function () {
         $("#Year").val($(".carYear").val());
@@ -129,7 +129,7 @@ vehicleRequest.selection = function () {
         });
 
         ajaxRequest.done(function (xml) {
-            var $carVersion = $('.carVersion');
+            //var $carVersion = $('.carVersion');
             $carVersion.html('');
             $carVersion.append('<option>Version</option>');
             $(xml).find("text").each(function () {
@@ -167,6 +167,12 @@ function getCarMPG() {
         type: "GET",
         url: 'http://www.fueleconomy.gov/ws/rest/vehicle/' + _vehicleID,
         dataType: "xml",
+        error: function () {
+            var $errorVehicle = $('.errorVehicle');
+            $errorVehicle.text('Sorry, we could not find the information about the vehicle.  An average mpg of 20 will be used for this vehicle.');
+            $("#AvgMPG").val("20");
+            $("#createVehicle").show();
+        }
     });
 
     //TODO Change the following function to adjust what elements you are looking for for a vehicle and what you want to do with the result
