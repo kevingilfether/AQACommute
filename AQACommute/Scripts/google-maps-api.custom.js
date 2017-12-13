@@ -97,7 +97,7 @@ function getTripInfo() {
                     //DurationInfo: duration
                 };
 
-                alert(mapData);
+                console.log(mapData);
                 $.ajax({
                     //makes it so page doesn’t wait to load
                     async: true,
@@ -106,15 +106,14 @@ function getTripInfo() {
                     data: JSON.stringify(mapData),
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
-                        alert("Info POSTed");
+                        console.log("Info retrieved from controller method");
                         var returnValue = parseFloat(data);
                         $("#co2GeneratedLbs").val(returnValue);
                         $("#textReturn").text((Math.round((parseFloat(distance) / 1609.34), 2)) + " miles for this trip.");
-                        
                     },
                     error: function (data) {
-                        alert("Error POSTing view info to controller!");
-                        alert(data);
+                        console.log("Error returning info from controller");
+                        console.log(data);
                     }
                 });
 
