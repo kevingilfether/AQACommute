@@ -123,3 +123,22 @@ li.marginAlign{
     border-radius: 10px !important;
 }
 
+/*Responsive Font Sizes*/
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 3em !important;
+    }
+
+    h2 {
+        font-size: 2em !important;
+    }
+
+    h3 {
+        font-size: 1.5em !important;
+    }
+
+    .border {
+        margin: 50px 10px 50px 10px !important;
+    }
+}
+
